@@ -1,0 +1,7 @@
+<!--pages/hello/hello.wxml-->
+<view class='wrap'>
+<image class='image' src='../../static/images/hello1.png'></image>
+<view class='oprator'>
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">立即开启</button>
+</view>
+</view>

@@ -1,0 +1,95 @@
+<!--pages/cate/cate.wxml-->
+<import src='../template/template' />
+<view class='wrap flex-column'>
+     <!--头部区-->
+  <view class="head-box">
+   <!--滑块视图-->
+    <swiper indicator-dots="true" autoplay="true" interval="3000" circular="true" indicator-color="rgba(255, 255, 255)" indicator-active-color="rgba(255, 101, 101,0.9)">
+      <block wx:key="1" wx:for="{{sliderList}}">
+        <swiper-item>
+							<image bindtap='labelDetail' data-id='{{item.id}}' data-page-title='{{item.name}}' mode="widthFix" src="{{img_url}}{{item.img_url}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    
+  </view>
+
+    <view class='cate-line'></view>
+  	<!-- 分类 -->
+	<view class="cate-wrap">
+      <swiper class="cate-wrap-swiper"    circular="true" indicator-color="rgba(255, 255, 255)" indicator-active-color="rgba(255, 211, 68,0.9)">
+    
+    <swiper-item>
+      <block  wx:for="{{cateList}}" wx:for-index="index" wx:for-item="item" >
+      <!-- 宠物分类 -->
+        <block wx:if="{{index <=4}}">
+          <view  class="cate-item" bindtap="enter_cateList" data-cid="{{item.id}}" data-cname="{{item.name}}">
+            <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+            <text class="cate-name">{{item.name}}</text>
+            <text class="cate-ename">{{item.ename}}</text>
+          </view>
+        </block>
+
+
+      <!-- 宠物百科 -->
+      <block wx:if="{{item.name=='宠物百科'}}">
+        <view  class="cate-item" bindtap="enter_petarticleList" data-cid="{{item.id}}" data-cname="{{item.name}}">
+          <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+          <text class="cate-name">{{item.name}}</text>
+          <text class="cate-ename">{{item.ename}}</text>
+        </view>
+      </block>
+   <!-- 宠物医生 -->
+
+      <block wx:if="{{item.name=='宠物医生'}}">
+        <view  class="cate-item" bindtap="enter_petDoctor" data-cid="{{item.id}}" data-cname="{{item.name}}">
+          <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+          <text class="cate-name">{{item.name}}</text>
+          <text class="cate-ename">{{item.ename}}</text>
+        </view>
+      </block>
+      <!-- 宠物优选 -->
+   
+      <block wx:if="{{item.name=='宠物优选'}}">
+        <view  class="cate-item"  data-cid="{{item.id}}" data-cname="{{item.name}}">
+          <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+          <text class="cate-name">{{item.name}}</text>
+          <text class="cate-ename">{{item.ename}}</text>
+        </view>
+      </block>
+      <block wx:if="{{index > 7}}">
+          <view  class="cate-item" data-cid="{{item.id}}" data-cname="{{item.name}}">
+            <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+            <text class="cate-name">{{item.name}}</text>
+            <text class="cate-ename">{{item.ename}}</text>
+          </view>
+        </block>
+
+
+      </block>
+    </swiper-item>
+      
+ 
+
+      
+       
+       
+
+		
+   
+
+
+    
+
+
+	</swiper>
+  
+  
+  
+  
+  </view>
+
+
+    <template is="bottom-nav" data="{{...nav_active}}"/>
+</view>
+

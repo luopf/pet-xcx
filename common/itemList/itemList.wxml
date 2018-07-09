@@ -1,0 +1,36 @@
+<!--商品列表-->
+<block wx:if="{{recommend}}">
+    <view class="recommend-goods-diplay-area">
+        <view class="recommend-title">推荐商品</view>
+        <view class="recommend-goods-list">
+            <block wx:key="1" wx:for="{{recommendGoods}}" wx:for-item="item">
+                <view class="goods-item" data-id="{{item.id}}" bindtap="goodsDetail">
+                    <image class="img" src="{{base_url}}{{item.img_url}}"></image>
+                    <view class="goods-name">{{item.name}}</view>
+                    <view class="goods-ori-price">原价：￥{{item.ori_price}}</view>
+                    <view class="goods-price">现价：￥{{item.price}}</view>
+                    <view class="buy-now">下单</view>
+                </view> 
+            </block>
+        </view>
+    </view>
+</block>
+<!--标签商品-->
+<view class="label-goods-diplay-area" wx:if="{{labelGoods && labelGoods.length > 0}}">
+    <block wx:key="x" wx:for="{{labelGoods}}" wx:for-item="item">
+        <view class="recommend-goods-diplay-area">
+        <view class="recommend-title">{{item.name}}</view>
+        <view class="recommend-goods-list">
+            <block wx:key="1" wx:for="{{item.goodsList}}" wx:for-item="item">
+                <view class="goods-item" data-id="{{item.id}}" bindtap="goodsDetail">
+                    <image class="img" src="{{base_url}}{{item.img_url}}"></image>
+                    <view class="goods-name">{{item.name}}</view>
+                    <view class="goods-ori-price">原价：￥{{item.ori_price}}</view>
+                    <view class="goods-price">现价：￥{{item.price}}</view>
+                    <view class="buy-now">下单</view>
+                </view> 
+            </block>
+        </view>
+    </view>
+    </block>
+</view>

@@ -1,0 +1,202 @@
+/* pages/order/paymentOrder/paymentOrder.wxss */
+@import "../../../app.wxss";
+page{
+  font-family: "微软雅黑";
+   background: #F2F2F2;
+}
+.container {
+  display: block;
+  padding: 0rpx;
+  width: 100%;
+  font-size:30rpx;
+  font-family: "微软雅黑";
+}
+
+.address-box {
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  padding: 20rpx;
+  align-items: center;
+}
+.address-box .address-left {
+  flex: 1;
+  box-sizing: border-box;
+}
+.address-box .address-left .user-info {
+  font-size: 36rpx;
+  color: #333333;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+}
+.address-box .address-left .address-info {
+  line-height: 46rpx;
+  color: #313131;
+}
+
+/*订单信息*/
+.order-info{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 5rpx 60rpx;
+  background: #fff;
+  color: #858585;
+  font-size: 26rpx;
+}
+.order-info image{
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  left: 20rpx;
+  padding-top: 10rpx;
+}
+.order-info .order-num{
+  padding: 10rpx 0;
+}
+.order-info .order-date{
+  padding-bottom: 10rpx;
+}
+/* 商品 */
+.goods-list {
+  margin-top: 20rpx;
+}
+.goods-list .goods-item {
+  background: #ffffff;
+  border-bottom: 1rpx solid #F1F1F1;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.goods-list .goods-item .goods-img {
+  width: 30%;
+}
+.goods-list .goods-item .goods-img image {
+  width: 100%;
+}
+.goods-list .goods-item .goods-info {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  flex: 1;
+  line-height: 46rpx;
+}
+.goods-list .goods-item .goods-info .goods-name {
+  font-size: 28rpx;
+  color: #333333;
+  /* line-height: 46rpx; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.goods-list .goods-item .goods-info .property {
+  font-size: 24rpx;
+  color: #999999;
+}
+.goods-list .goods-item .other-info {
+  line-height: 46rpx;
+  font-size: 32rpx;
+  color: #E6303C;
+}
+.goods-list .goods-item .other-info .count {
+  color: #666666;
+  text-align: right;
+}
+.express {
+  border-bottom: 1rpx solid #F1F1F1;
+  background: #ffffff;
+  color: #333333;
+  padding: 20rpx;
+  font-size: 32rpx;
+  justify-content: space-between;
+}
+.reserve {
+  border-bottom: 1rpx solid #F1F1F1;
+  background: #ffffff;
+  color: #333333;
+  padding: 20rpx;
+  font-size: 32rpx;
+  height: 40rpx;
+  align-items: center;
+}
+.reserve input {
+  flex: 1;
+  padding-left: 20rpx;
+}
+.total-wrap {
+  border-bottom: 1rpx solid #F1F1F1;
+  background: #ffffff;
+  color: #333333;
+  padding: 20rpx;
+  font-size: 32rpx;
+  text-align: right;
+}
+.total-wrap .goods-count {
+  padding-right: 20rpx;
+}
+.total-wrap .total-price text {
+  color: #E43A35;
+}
+
+/*  */
+.price-name{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  position: relative;
+  padding:20rpx 30rpx;
+}
+.price-name .item-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rpx 0;
+  color:#858585;
+  font-size:26rpx;
+ 
+}
+.price-fee{
+  padding-right: 25rpx; 
+}
+.pay-area{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  margin-top: 30px;
+}
+.payment{
+  display: block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  color: #fff;
+  background: #269A35;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  
+}
+.daofu{
+  margin-top: 10px;
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid #B5B5B5;
+  border-radius: 5px;
+  width: 100%;
+  color: #333;
+  background: #fff;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+}
+.success-icon{
+  position: relative;
+  top: -1px;
+  right: 2px;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}

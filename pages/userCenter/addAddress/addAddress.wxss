@@ -1,0 +1,87 @@
+/* pages/userCenter/addAddress/addAddress.wxss */
+page {
+    /* background-color: #f0f0f0; */
+    -webkit-text-size-adjust: 100%;
+    font-family: "微软雅黑";
+}
+.container {
+  padding: 0;
+  background-color: #fff;
+}
+.input{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 30rpx;
+    padding-top: 28rpx;
+}
+.container .address-view {
+  position: relative;
+  height: 170rpx;
+  line-height: 2;
+}
+
+.container .address-view input {
+  border: 1px solid #ccc;
+  padding: 7rpx 0;
+  border-radius: 6rpx;
+  padding-left: 5rpx;
+}
+
+.container .address-view .address {
+  width: 500rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 150rpx;
+}
+
+.container .address-view .detail {
+  width: 500rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 150rpx;
+}
+
+.container .save-address {
+  width: 50%;
+  color: #fff;
+  background-color: #E8065A;
+  line-height: 2;
+  margin-top: 100rpx;
+  border-radius: 0;
+}
+
+/* 选择器 */
+.citypickers{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: red;
+}
+
+.citypicker{
+  
+}
+.citybody {
+  position: fixed;
+  bottom: 0px;
+  background: #fff;
+}
+.citybody view {
+	text-align: center;
+}
+
+.cityheader {
+	box-sizing: border-box;
+	position: absolute;
+	top:0px;
+	width: 100%;
+	z-index: 4;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10rpx;
+	font-size: 32rpx;
+}
+

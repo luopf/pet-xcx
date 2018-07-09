@@ -1,0 +1,67 @@
+<!--pages/userCenter/personal/personal.wxml-->
+<view class="info-my">
+<!--头像-->
+  <view class="info-item head-img">
+    <text class="item-intro">头像</text>
+    <image mode='widthFix' class="head-img-url" src="{{userData.head_img_url}}"></image>
+  </view>
+
+<!--昵称-->
+  <view class="info-item nick-name">
+    <text class="item-intro">昵称</text>
+    <input class="edit-cont" bindinput="nickName" value="{{userData.nick_name}}" />
+  </view>
+
+   <!--性别-->
+  <view class="info-item phone">
+    <text class="item-intro">性别</text>
+    <block wx:if="{{userData.sex == 1}}">
+       <input class="edit-cont" bindinput="sex" value="男" />
+    </block>
+    <block wx:elif="{{userData.sex == 2}}">
+         <input class="edit-cont" bindinput="sex" value="女" />
+    </block>
+    <block wx:else>
+         <input class="edit-cont" bindinput="sex" value="未知" />
+    </block>
+  </view>
+
+  <!--号码-->
+  <view class="info-item phone">
+    <text class="item-intro">号码</text>
+    <input class="edit-cont" bindinput="phone" value="{{userData.phone}}" />
+  </view>
+
+  <!--地区-->
+  <view class="info-item head-img place">
+    <text class="item-intro">地区</text>
+    <text class='item-right' bindtap="open">{{province}} {{city}} {{county}}</text>
+  </view>
+
+  <!--我的地址-->
+  <view class="info-item head-img">
+    <text class="item-intro">我的地址</text>
+    <input class="edit-cont" bindinput="detail" value="{{userData.detail}}" />
+  </view>
+
+  <view class="btn-save" bindtap="saveInfo">保存</view>
+
+<!-- 弹框 -->
+<view wx:if="{{condition}}" class="citypicker">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 240px;" value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="open" class="city-cancel">取消</view>
+      <view bindtap="open" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+</view>

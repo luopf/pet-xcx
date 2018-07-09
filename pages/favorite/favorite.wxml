@@ -1,0 +1,77 @@
+<!--pages/cateList/cateList.wxml-->
+<!--pages/cate/cate.wxml-->
+<import src='../template/template' />
+<view class='wrap'>
+
+  <block wx:key="1" wx:for="{{messageList}}">
+
+        <view class="message-item" >
+          <view class="item-left">
+            <image class="item-image" src="{{item.head_img_url}}"></image>
+          </view>
+          <view class="item-right" bindtap="messageDetail" data-mid="{{item.id}}">
+            <view class="item-right-head">
+              <view>
+               <text class="item-username">{{item.nick_name}}</text>
+              </view>
+              <view class="item-button">
+                <text class='favorite'>已收藏</text>
+              </view>
+            </view>
+            <view >
+              <view class="item-right-content">
+              {{item.text_content}}
+              </view>
+              <view class="item-imagelist">
+                <block wx:key="1" wx:for="{{item.img_list}}" wx:for-item="image">
+                <image mode="aspectFill" class="item-imagelist-img" src="{{img_url}}{{image.thumb}}"></image>
+                </block>
+              </view>
+              <view class="item-address">
+                
+                <text class="item-addresstext">{{item.address_text}}</text>
+              </view>
+              <view class='item-time'>
+                <text class="item-timetext">{{item.time_desc}}</text>
+              </view>
+              <view class="item-bottom">
+               
+                <view class="item-nums">
+                  <view class="item-nums-left">
+
+                    <view class="item-num">
+                      <i class="icon iconfont icon-chakan1"></i>
+                      <text class="item-nums-text">浏览{{item.check_num}}次</text>
+                    </view>
+
+                  </view>
+                  <view class="item-nums-right">
+
+                    <view class="item-num">
+                      <i class="icon iconfont icon-pinglunguanli"></i>
+                      <text class="item-nums-text">{{item.message_num}}</text>
+                    </view>
+                    <view class="item-num">
+                      <i class="icon iconfont icon-dianzan-copy-copy"></i>
+                      <text class="item-nums-text">{{item.like_num}}</text>
+                    </view>
+                    <view class="item-num">
+                      <i class="icon iconfont icon-fenxiang1"></i>
+                      <text class="item-nums-text">{{item.report_num}}</text>
+                    </view>
+
+                  </view>
+
+
+                </view>
+              </view>
+            </view>
+          </view>
+        
+        </view>
+
+      </block>
+
+
+</view>
+

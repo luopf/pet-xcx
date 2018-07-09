@@ -1,0 +1,25 @@
+@import "../template/template.wxss";
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.wrap{
+  width: 100%;
+  padding:35rpx 20rpx 20rpx 20rpx;
+  background-color: #fff;
+  display: block;
+}
+.wrap image{
+  height: 290rpx;
+}
+.goods-name{
+  padding-top:20rpx; 
+  color: #222;
+  font-size:30rpx;
+}

@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<import src='../template/template' />
+<view class="wrap">
+
+  <view class="content">
+      <image class="content-image" src='../../static/images/success.png'></image>
+      <text class='content-text'>发布成功，等待审核</text>
+  </view>
+</view>
+  
+  

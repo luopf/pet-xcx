@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class="container">
+   <view class="goods-list">
+    <block wx:key="1" wx:for="{{goodsList}}" wx:for-item="goods">
+      <view class="goods" data-id="{{goods.gid}}" bindtap="goodsDetail">
+        <image class="img" src="{{base_url}}{{goods.thumb}}"></image>
+        <view class="goods-info">
+          <view class="name">{{goods.goods_name}}</view>
+          <view class="property">
+            <block wx:key="2" wx:for="{{goods.property}}" wx:for-item="property">
+              {{property.name}}:{{property.value}}
+            </block>
+          </view>
+        </view>
+        <view class="price-num">
+            <view class="goods-price">￥{{goods.price}}</view>
+            <view class="goods-num">×{{goods.count}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="score">
+    <view class="score-desc">描述相符</view>
+    <view class="score-info">
+          <block wx:key="3" wx:for="{{stars}}">
+            <image class="star-image" style="left: {{item*50}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+            
+              <view class="item" data-key="{{item+1}}" bindtap="selectRight"></view>
+            </image>
+          </block>
+    </view>
+  </view>
+ <view class="border"></view>
+  <view class="section">
+    <textarea auto-focus auto-height maxlength="-1" placeholder="亲,写点什么吧,你的意见对其他淘友有很大帮助!真的有很大的帮助!" placeholder-style="color:#D2D2D2;" bindinput="listenerCommentInput" />
+  </view>
+
+<view class="item1 item2">
+        <view class="img-area">
+          <block wx:key="4" wx:if="{{imgShow}}" wx:for="{{imgList}}"  wx:for-index="index">
+            <view class="img">
+              <image src="{{base_url}}{{item.img_url}}"></image>
+              <text data-index="{{index}}" class="off-icon" bindtap="delImg"><text>×</text></text> 
+            </view>
+          </block>
+
+          <view wx:if="{{btnShow}}" class="add-btn" bindtap="chooseImg">
+            <image mode="widthFix" src="../../static/images/my/camera.png"></image>
+          </view>
+        </view>
+    </view>
+
+
+<view class="bottom-nav">
+  <view class="left">
+    <checkbox-group bindchange="checkboxChange">
+        <checkbox color="red" value="1" checked="{{false}}"/>匿名
+    </checkbox-group>
+  </view>
+  <view bindtap="submitForm" class="right">
+    <text>发表评论</text>
+  </view>
+</view>
+
+</view>

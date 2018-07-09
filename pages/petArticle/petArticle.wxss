@@ -1,0 +1,41 @@
+/* pages/petArticle/petArticle.wxss */
+@import "../../wxParse/wxParse.wxss";
+page{
+    font-family: "微软雅黑";
+    background: white;
+}
+.wrap {
+	height: 100%;
+ 
+}
+.top .top-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.top .top-date{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.top .top-date{
+  display: flex;
+  flex-direction: row;
+
+}
+.top .top-date .author{
+  color: #C1C1C1;
+  margin-right: 10rpx;
+}
+.top .top-date .date{
+  color: #C1C1C1;
+}
+.top .top-title .title{
+  font-size: 35rpx;
+}
+.content{
+  flex: 1;
+  margin-top: 10rpx;
+  padding:20rpx;
+
+}

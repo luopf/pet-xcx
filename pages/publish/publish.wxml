@@ -1,0 +1,108 @@
+<!--index.wxml-->
+<import src='../template/template' />
+<view class='sapce-line'></view>
+<view class="wrap">
+  <!-- 发布内容 -->
+  <view class="content">
+      <textarea class="content-textarea" bindblur="bindContentTextAreaBlur"   placeholder="请输入您想发布的内容..." />
+  </view>
+  <!-- 上传图片 -->
+   <view class="img-content">
+    
+          <block wx:for="{{imgList}}" wx:for-item="img" wx:for-index="index">  
+          <view class='temp-img-area'>
+            <image class='temp_img' src='{{img_url}}{{img.img_url}}'>
+            </image>
+            <image class='delete-img' src='../../static/images/delete.png' data-index="{{index}}" catchtap="deletetempimg"  ></image>
+          </view>
+          </block>  
+      
+      
+        <image wx:if="{{imgList.length <= 2}}" catchtap="addimg" class="imgadd" src="../../static/images/addimg.jpg"></image>
+     
+     
+  </view>
+  <view class="user-notic">
+      <text>温馨小提示：点击右上角的箭头可以删除,只可以上传三张哦~</text>
+  </view>
+  <!-- 标签区域 -->
+  <view class="label-area">
+    <view class="label-title">
+      <text class="label-title-text">发布标签：</text>
+    </view>  
+    <view class="label-content">
+    
+      <block wx:for="{{cateList}}"  wx:for-item="cate"  wx:for-index="idx">
+      
+         <block wx:if="{{idx <= 4}}"> 
+         
+          <view wx:if="{{cate.id == cateSelectIndex}}" class="label-item select" data-cid="{{cate.id}}" catchtap="selectCate" >{{cate.name}}</view>
+          <view wx:else class="label-item" data-cid="{{cate.id}}"  catchtap="selectCate" >{{cate.name}}</view>
+          
+          
+         </block> 
+        
+      </block>
+    
+    </view>
+    
+  </view>
+
+  
+  <!-- 宠物基本信息区域 -->
+  <view class="pet-detail-area">
+    <view class="pet-detail-title">
+      <text class="pet-detail-title-text">宠物基本信息:</text>
+    </view>
+    <view class="pet-detail-content">
+      <view class="pet-name input-view">
+        <label class="label-title">宠物昵称：</label>
+        <input class="petnameinput input" bindinput="bindPetNameInput" placeholder='请输入宠物昵称' placeholder-class="inputplaceholder"/>
+      </view>
+      <view class="pet-cate input-view">
+        <label class="label-title">宠物品种：</label>
+        <input class="petcateinput input" bindinput="bindPetCateInput" placeholder='请输入宠物品种' placeholder-class="inputplaceholder"/>
+      </view>
+      <view class="pet-age input-view">
+        <label class="label-title">宠物年龄：</label>
+        <input class="petageinput input" bindinput="bindPetAgeInput" placeholder='请输入宠物年龄'placeholder-class="inputplaceholder" />
+      </view>
+      <view class="pet-sex input-view">
+        <label class="label-title">宠物性别：</label>
+        <input class="petsexinput input" bindinput="bindPetSexInput" placeholder='请输入宠物性别' placeholder-class="inputplaceholder"/>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="contact-area">
+    <view class="contact-area-title">
+      <text class="contact-area-title-text">联系方式:</text>
+    </view>
+    <view class="contact-area-content">
+      <view class="user-phone input-view">
+          <label class="label-title">联系电话：</label>
+          <input class="userphoneinput input" bindinput="bindUserPhoneInput" placeholder='请输入电话联系方式' placeholder-class="inputplaceholder"/>
+      </view>
+       <view class="user-wx input-view">
+          <label class="label-title">微信号码：</label>
+          <input class="userwxinput input" bindinput="bindWXInput"  placeholder='请输入微信联系方式' placeholder-class="inputplaceholder"/>
+      </view>
+      <view class="user-address input-view" catchtap='choseMap'>
+          <i class="iconfont icon-dingwei"></i>
+          <text class='address-text'>{{address_text}}(定位当前位置)</text>
+      </view>
+      
+    </view>
+  </view>
+
+
+  
+
+</view>
+<view class='publish-view'>
+  <view class="submit-publish" catchtap="publish_message">
+    <text class="submit-text">立即发布</text>
+  </view>
+</view>
+<template is="bottom-nav" data="{{...nav_active}}"/>

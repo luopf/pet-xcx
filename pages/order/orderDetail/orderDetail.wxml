@@ -1,0 +1,38 @@
+
+<!--pages/order/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <view class="goods-item">
+    <view class="order-head" data-id="{{orderInfo.id}}" bindtap="orderDetail">
+      <view class="order-time">订单时间{{orderInfo.add_time}}</view>
+      <view class="order-state">{{orderInfo.state_text}}</view>
+    </view>
+    <view class="order-body">
+      <block wx:for="{{orderInfo.goods_list}}" wx:for-item="goods">
+        <view class="goods" data-id="{{goods.gid}}" bindtap="goodsDetail">
+          <image class="img" src="{{base_url}}{{goods.thumb}}"></image>
+          <view class="goods-info">
+            <view class="name">{{goods.goods_name}}</view>
+            <view class="property">
+              <block wx:for="{{goods.property}}" wx:for-item="property">
+                {{property.name}}:{{property.value}}
+              </block>
+            </view>
+            <view class="price-num">
+              <view class="goods-price">￥{{goods.price}}</view>
+              <view class="goods-num">x{{goods.count}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="address">{{orderInfo.address_text}}</view>
+      <view hidden="{{!orderInfo.express_company}}" class="express_company">快递公司：{{orderInfo.express_company}}</view>
+      <view hidden="{{!orderInfo.express_number}}" class="express_number">快递单号：{{orderInfo.express_number}}</view>
+    </view>
+    <view class="order-foot">
+      <view class="total-price">
+        <view>总价：</view>
+        <view class="total-money">￥{{orderInfo.total_price}}</view>
+      </view>
+    </view>
+  </view>
+</view>

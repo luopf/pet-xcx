@@ -1,0 +1,5 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<import src='../template/template' />
+<view class="wrap">
+   <web-view src="{{aticleInfo.path}}"></web-view>
+</view>

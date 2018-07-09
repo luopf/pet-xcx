@@ -1,0 +1,7 @@
+<!--公共footer模块-->
+<view class="footer">
+    <block wx:for="{{footer}}">
+        <image src="{{item.url}}" class="img"></image>
+        <text class="name">{{item.name}}</text>
+    </block>
+</view>

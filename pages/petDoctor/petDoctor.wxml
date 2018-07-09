@@ -1,0 +1,173 @@
+<import src='../template/template' />
+<view class="wrap">
+   <view class="putarea">
+    <!-- 宠物品种 -->
+    <view class="petcate inputline">
+      <view class="title-left">
+        <text class="left-title">宠物品种</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+        <input class="petcateinput input" bindinput="bindPetCateInput" placeholder="例如泰迪，拉布拉多" placeholder-class="input-placeholder"/>
+      </view>
+    </view>
+    <!-- 宠物生日 -->
+    <view class="petbirthday inputline">
+      <view class="title-left">
+        <text class="left-title">宠物生日</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+        <picker class="picker" mode="date" value="{{petbitthday}}" start="2015-09-01" end="2027-09-01" bindchange="bindBirthdayDateChange">
+            {{petbitthday}}
+        </picker>
+         <i class="iconfont icon-riqi"></i>
+      </view>
+    </view>
+    <!-- 宠物性别 -->
+    <view class="petsex inputline">
+      <view class="title-left">
+        <text class="left-title">宠物性别</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+
+        <picker class="picker" value="{{sexIndex}}" range="{{sexArray}}" bindchange="bindSexChange" >
+           <block wx:if="{{sexIndex ==-1}}">
+                                    公，母
+                              </block>
+                              <block wx:else>
+                                    {{sexArray[sexIndex]}}
+                               </block>
+        </picker>
+         <i class="iconfont icon-sanjiaoxing-down"></i>
+      </view>
+    </view>
+     <!-- 是否绝育 -->
+    <view class="petbear inputline">
+      <view class="title-left">
+        <text class="left-title">是否绝育</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+
+        <picker class="picker" value="{{bearIndex}}" range="{{bearArray}}" bindchange="bindBearChange" >
+           <block wx:if="{{bearIndex ==-1}}">
+                                    是 ，否
+                              </block>
+                              <block wx:else>
+                                    {{bearArray[bearIndex]}}
+                               </block>
+        </picker>
+         <i class="iconfont icon-sanjiaoxing-down"></i>
+      </view>
+    </view>
+<!-- 上次免疫时间 -->
+    <view class="petlastimmunedate inputline">
+      <view class="title-left">
+        <text class="left-title">上次免疫时间</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+        <picker class="picker-small" mode="date" value="{{date}}" start="2015-09-01" end="2027-09-01" bindchange="bindLastImmuneChange">
+            {{petlastimmune}}
+        </picker>
+         <i class="iconfont icon-riqi"></i>
+      </view>
+    </view>
+
+    <!-- 上次驱虫时间 -->
+    <view class="petlastrepellantdate inputline">
+      <view class="title-left">
+        <text class="left-title">上次免疫时间</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+        <picker class="picker-small" mode="date" value="{{date}}" start="2015-09-01" end="2027-09-01" bindchange="bindLastRepellantChange">
+            {{petlastrepellant}}
+        </picker>
+         <i class="iconfont icon-riqi"></i>
+      </view>
+    </view>
+
+<!-- 联系方式 -->
+    <view class="phone inputline">
+      <view class="title-left">
+        <text class="left-title">联系方式</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+        <input class="phoneinput input" bindinput="bindPhoneInput" placeholder="请输入联系方式" placeholder-class="input-placeholder"/>
+      </view>
+    </view>
+<!-- 联系方式 -->
+    <view class="phone inputline">
+      <view class="title-left">
+        <text class="left-title">微信方式</text>
+        <view class="line"></view>
+      </view>
+      <view class="input-right">
+        <input class="wx_nuimberinput input" bindinput="bindWxNumberInput" placeholder="请输入微信号" placeholder-class="input-placeholder"/>
+      </view>
+    </view>
+
+
+   </view>
+   <view class="radioarea">
+    <view class='radio-title'>
+      <text class="title">精神，食欲及吃喝拉撒情况:</text>
+    </view>
+    <view class="radio-content">
+       <block wx:for="{{checkboxArray}}" wx:for-item="box" wx:for-index="index">
+        <view class="radio-item" wx:if="{{checkboxindex==index}}" bindtap="choose" data-index="{{index}}">
+           <i class="iconfont icon-xuanzhong"></i>
+          <view class="box_choose box">{{box.value}}</view>
+        </view>
+        <view class="radio-item" wx:else="{{choose!=index}}" bindtap="choose" data-index="{{index}}">
+           <i class="iconfont icon-weixuan1"></i>
+          <view class="box">{{box.value}}</view>
+        </view>
+      </block>
+    </view>
+   </view>
+   <view class="contentarea">
+    <view class="content-title">
+      <text class="title">病情描述:</text>
+    </view>
+    <view class="content">
+      <textarea bindblur="bindContentTextAreaBlur"  auto-height placeholder="请输入内容~" placeholder-class="text-area-placeholde"/>
+    </view>
+   </view>
+   <view class="imgarea">
+    <view class="img-title">
+      <text class="title">上传狗狗照片:</text>
+    </view>
+    <view class="img-content">
+    
+          <block wx:for="{{imgList}}" wx:for-item="img" wx:for-index="index">  
+          <view class='temp-img-area'>
+            <image class='temp_img' src='{{img_url}}{{img.img_url}}'>
+            </image>
+            <image class='delete-img' src='../../static/images/delete.png' data-index="{{index}}" catchtap="deletetempimg"  ></image>
+          </view>
+          </block>  
+      
+      
+        <image wx:if="{{imgList.length <= 2}}" catchtap="addimg" class="imgadd" src="../../static/images/addimg.jpg"></image>
+     
+     
+    </view>
+    <view class="user-notic">
+      <text>温馨小提示：点击右上角的箭头可以删除哦~</text>
+    </view>
+    
+
+   </view>
+
+
+
+
+</view>
+<view class="submit" bindtap='submit_detail'>
+  <text>立即提交</text>
+</view>

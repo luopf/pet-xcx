@@ -1,0 +1,9 @@
+<!--pages/mapView/mapView.wxml-->
+<map
+class='mapview'
+      id="myMap"
+      markers="{{markers}}"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      show-location
+    ></map>

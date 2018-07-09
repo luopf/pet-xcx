@@ -1,0 +1,54 @@
+
+.header {
+    height:80rpx;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:99;
+    background:#FE7774;
+
+
+}
+.header .main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 695rpx;
+    height: 56rpx;
+    color: #fff;
+    font-weight: normal;
+    margin: 0 auto;
+    margin-top: 12rpx;
+    padding: 0 18rpx;
+    border-radius: 8rpx;
+    font-size: 35rpx;
+    background-color: rgba(255,255,255,.36);
+}
+.header .main .input {
+    flex:1;
+    margin-left:10rpx;
+    font-size:10pt;
+    color:#fff;
+
+}
+.header .main .place-holder {
+    color: #fff;
+}
+.search{
+    width: 50rpx;
+    height: 50rpx;
+    right:10rpx;
+   padding: 0 5rpx;
+    position: absolute;
+    z-index: 999999;
+}
+.serach-button {
+width:20px;
+height:20px;
+display:inline-block;
+overflow:hidden;
+
+}

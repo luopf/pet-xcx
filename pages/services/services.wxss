@@ -1,0 +1,29 @@
+/* pages/services/services.wxss */
+page{
+  background: #EFEFEF;
+}
+swiper{
+  height: 480rpx;
+}
+image {
+width:100%;
+height:100%;
+display:inline-block;
+overflow:hidden;
+}
+
+.service-centent{
+  display: flex;
+  background: #EFEFEF;
+  flex-direction:column;
+  width: 100%;
+}
+.service-box {
+    width: 100%;
+    margin-top: 45rpx;
+}
+.service-box .service-icon{
+  width: 33.3%;
+  height: 240rpx;
+  
+}

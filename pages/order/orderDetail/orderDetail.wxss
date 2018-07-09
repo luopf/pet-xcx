@@ -1,0 +1,118 @@
+/* pages/order/orderDetail/orderDetail.wxss */
+
+.container {
+    padding: 20rpx;
+}
+
+.goods-item {
+  margin-top:20rpx; 
+  background-color: #fff;
+}
+
+.goods-item .order-head {
+  display: flex;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  position: relative;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #eee;
+  border-top: 1rpx solid #eee;
+}
+
+.goods-item .order-head .order-time {
+}
+
+.goods-item .order-head .order-state {
+  color: #4caf50;
+  position: absolute;
+  right: 180rpx;
+}
+
+.goods-item .order-head .order-detail {
+  position: absolute;
+  right: 20rpx;
+  top: 10rpx;
+  background: #4caf50;
+  width: 140rpx;
+  line-height: 40rpx;
+  border-radius: 6rpx;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.goods-item .order-body {
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+
+.goods-item .order-body .goods {
+  display: flex;
+}
+
+.goods-item .order-body .goods .img {
+  width: 240rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  margin-right: 10px;
+}
+
+.goods-item .order-body .goods .goods-info {
+  padding-top: 20rpx;
+}
+
+.goods-item .order-body .goods .goods-info .name {
+  font-size: 30rpx;
+}
+
+.goods-item .order-body .goods .goods-info .price-num {
+  width: 490rpx;
+  position: relative;
+  display: flex;
+}
+
+.goods-item .order-body .goods .goods-info .price-num .goods-num {
+  position: absolute;
+  right: 20rpx;
+}
+
+.goods-item .order-foot {
+  font-size: 28rpx;
+  padding: 20rpx;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+}
+
+.goods-item .order-foot .total-price {
+  position: relative;
+  display: flex;
+}
+
+.goods-item .order-foot .total-price .total-money {
+  position: absolute;
+  right: 20rpx;
+  color: #ff6000;
+}
+
+.goods-item .order-foot .option button {
+  font-size: 28rpx;
+  width: 175rpx;
+  line-height: 46rpx;
+  margin-right: 0rpx;
+  margin-top:10rpx;
+  border:1rpx solid #ccc;
+}
+.goods-item .order-foot .option button.refund_order{
+  color:#fff;
+  background-color:#FF2525;
+}
+
+.goods-item .order-foot .option button.confirm_order{
+  color:#fff;
+  background-color:#31B0D5;
+}
+
+.goods-item .order-foot .option button.success_order{
+  color:#fff;
+  background-color:#7AB900;
+}

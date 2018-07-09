@@ -1,0 +1,87 @@
+/* pages/userCenter/personal/personal.wxss */
+.info-my,html{
+  background-color: #EDEDED;
+}
+page{
+  background: #EDEDED;
+  font-family: "微软雅黑";
+}
+.info-item{
+  padding: 25rpx 15rpx;
+  border-bottom: 1px solid #EDEDED;
+  background: #ffffff;
+  overflow: hidden;
+}
+.info-item .item-intro{
+  float: left;
+}
+.info-item .name-cont,.info-item .head-img-url{
+  float: right;
+}
+.info-item .head-img-url{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.head-img{
+  line-height: 60rpx;
+}
+.info-item .edit-cont{
+  text-align: right;
+}
+.btn-save{
+  text-align: center;
+  margin: 40rpx auto;
+  padding: 16rpx;
+  background: #EB4746;
+  border-radius: 10rpx;
+  color: #fff;
+  width: 94%;
+}
+.place {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.place .item-right {
+	flex: 1;
+	text-align: right;
+}
+
+/* 选择器 */
+.citypickers{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: red;
+}
+
+.citypicker{
+  
+}
+.citybody {
+  position: fixed;
+  bottom: 0px;
+  background: #f2f2f2;
+  z-index: 500;
+}
+.citybody view {
+	text-align: center;
+}
+
+.cityheader {
+	box-sizing: border-box;
+	position: absolute;
+	top:0px;
+	width: 100%;
+	z-index: 4;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10rpx;
+	font-size: 32rpx;
+	/* background: #ccc; */
+	border-top: 1px solid #dbdbdb;
+}
+

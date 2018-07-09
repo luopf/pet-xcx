@@ -1,0 +1,56 @@
+<!--pages/userCenter/userCenter.wxml-->
+<import src='../../template/template' />
+<view class="content-wrap">
+<view class='header'>
+ 
+  <view class="user-info">
+    
+      <image  class="user-img" src="{{img_url}}{{userInfo.head_img_url}}"></image> 
+      <text class="user-name">{{userInfo.nick_name}}</text>
+   
+   
+  </view>
+</view>
+  <view class="menu-area">
+   
+    <view class="menu-item-view">
+      <view class='menu-item-view-header'>
+        <text>我的发布</text>
+      </view>
+      <view class='menu-item-view-content'>
+
+        <view class="menu-item" data-status="1" catchtap="enter_messgeList">
+            <text class="iconfont icon-yifabu"></text>
+            <text class="menu-item-text-show" >已发布</text>
+        </view>
+
+        <view class="menu-item" data-status="0" catchtap="enter_messgeList">
+            <text class="iconfont icon-shenhezhong1"></text>
+            <text class="menu-item-text-show">审核中</text>
+        </view>
+
+      </view>
+      
+
+    </view>
+    <view class='space-line'></view> 
+    <view class="menu-item-view">
+       <view class='menu-item-view-header'>
+        <text>我的收藏</text>
+      </view>
+      <view class='menu-item-view-content'>
+        <view class="menu-item"  catchtap="enter_favorite">
+            <text class="iconfont icon-fav-1"></text>
+            <text class="menu-item-text-show">收藏的帖子</text>
+        </view>
+      </view>
+    </view>  
+      
+      
+    
+  </view>
+  
+  <template is="bottom-nav" data="{{...nav_active}}"/>
+</view>
+
+

@@ -1,0 +1,91 @@
+/* pages/userCenter/addressList/addressList.wxss */
+page {
+    background-color: #f0f0f0;
+    -webkit-text-size-adjust: 100%;
+    font-family: "微软雅黑";
+}
+.container {
+  padding: 0rpx;
+  padding-bottom: 100rpx;
+  width: 750rpx;
+  background-color: #f3f3f3;
+  height: 100%;
+}
+.container .separator{
+  padding: 5px;
+  width: 100%;
+  background-color: #F2F2F2;
+}
+.container radio-group{
+    width: 100%;
+}
+.container .address {
+  /* width: 690rpx; */
+  /* width: 100%; */
+  /* margin: 20rpx 20rpx 0 20rpx; */
+  /* border: 1rpx solid #ccc; */
+  /* border-radius: 10rpx; */
+  background-color: #fff;
+  color: #656565;
+  padding: 0 20rpx; 
+}
+
+.container .address .address-content {
+  border-bottom: 1rpx solid #ccc;
+   padding: 10rpx 0; 
+  line-height: 1.7;
+}
+
+.container .address .address-content .address-name {
+  color: black;
+  font-size: 1.2em;
+  justify-content: space-between;
+  display: flex;
+  padding: 20rpx 0;
+}
+.container .address .address-detail{
+  padding-bottom: 20rpx;
+}
+.container .address .address-operate {
+   padding: 20rpx 0;
+  display: flex;
+  /* position: relative; */
+  line-height: 1.7;   
+  margin-bottom: 10rpx;
+}
+.container .address .address-operate .checkbox{
+  display: flex;
+  align-items: center;
+}
+.container .address .address-operate .radio-image{
+  width: 38rpx;
+  height: 38rpx;
+  padding-right: 8rpx;
+}
+.container .address .address-operate .edit-address {
+  position: absolute;
+  right: 140rpx;
+  /*color: #e43339;*/
+  border: 1rpx #ccc solid;
+   padding: 0rpx 10rpx;
+}
+
+.container .address .address-operate .delete-address {
+  position: absolute;
+  right: 20rpx;
+  /*color: #e43339;*/
+  border: 1rpx #ccc solid;
+  padding: 0rpx 10rpx;
+}
+
+.container .add-address {
+  color: #010105;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  /* border-radius: 10rpx; */
+  line-height: 80rpx;
+  left: 0;
+}

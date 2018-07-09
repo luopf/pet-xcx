@@ -1,0 +1,109 @@
+<import src='../template/template' />
+<view class="mod-cart">
+    <scroll-view scroll-y="true">
+        <view class="cart-title">
+            <view class="all-select-box">
+               <image src="../../static/images/my/selecteds.png" wx:if="{{selectAll}}" bindtap="selectAll"></image>
+               <image src="../../static/images/my/select.png" wx:else bindtap="selectAll"></image>
+                 <span class="title">全选</span>
+            </view>
+            <span class="edit-cart" bindtap="changeTab" data-editend="{{editEnd}}">{{editEndText}}</span>
+        </view>
+ 
+        <block wx:if="{{con}}">
+               <block wx:key="key" wx:for="{{dataList}}">
+                <view  class="goods-item">
+                    <block wx:if="{{btnTexts}}">
+                        <view wx:if="{{item.updown}}" class="checkbox">
+                            <image src="../../static/images/my/selecteds.png" wx:if="{{item.checked}}" data-index="{{index}}" bindtap="check"></image>
+                            <image src="../../static/images/my/select.png" wx:else data-index="{{index}}" bindtap="check"></image>
+                        </view>
+                        <view wx:else class="checkbox">
+                            <image src="../../static/images/my/forbidden.png" data-index="{{index}}"></image>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="checkbox">
+                            <image src="../../static/images/my/selecteds.png" wx:if="{{item.checked}}" data-index="{{index}}" bindtap="check"></image>
+                            <image src="../../static/images/my/select.png" wx:else data-index="{{index}}" bindtap="check"></image>
+                        </view>
+                    </block>
+
+                    <span class="goods-image" data-gid="{{item.gid}}" bindtap="gotoDetail">
+                        <image class="goods-img-url"src="{{base_url}}{{item.thumb}}"></image>
+                    </span>
+
+                    <view class="goods-content" data-gid="{{item.gid}}" bindtap="gotoDetail">
+                        <span class="goods-title">{{item.goods_name}}</span>
+                        <view class="property">{{item.property_text}}</view>
+                    </view>
+
+                    <view class="goods-status">
+                        <block wx:if="{{item.updown == 0}}">
+                            <view class="goods-down">下架</view>
+                        </block>
+                        <block wx:else>
+                            <view class="price-area">
+                                <view class="price">￥{{item.price}}</view>
+                                <view class="ori-price">￥{{item.ori_price}}</view>
+                            </view>
+                            <view class="add-box" wx:if="{{item.updown == 1}}">
+                                <!--<image class="reduce" hidden data-count="{{item.goods_count}}" data-id="{{item.id}}" data-gid="{{item.gid}}" src="../../static/images/my/jian.png" bindtap="reduce" data-num="{{index}}"></image>-->
+                                <view class="sign" data-count="{{item.goods_count}}" data-id="{{item.id}}" data-gid="{{item.gid}}" bindtap="reduce" data-num="{{index}}">-</view>
+                                <view class="goods-count" data-num="{{index}}">{{item.goods_count}}</view>
+                                <view class="sign" data-count="{{item.goods_count}}" data-id="{{item.id}}" data-gid="{{item.gid}}" src="../../static/images/my/jia.png" bindtap="add" data-num="{{index}}">+</view>
+                                <!--<image class="add" hidden data-count="{{item.goods_count}}" data-id="{{item.id}}" data-gid="{{item.gid}}" src="../../static/images/my/jia.png" bindtap="add" data-num="{{index}}"></image>-->
+                            </view>
+                        </block>
+                        <!--按钮-->
+                    </view>
+                </view>
+                </block>
+
+        </block>
+        
+        <block wx:else>
+            <view  class="" style="text-align: center;color: #999999;">购物车快饿瘪了~快去购物吧</view>
+        </block>
+        </scroll-view>
+        <!--<template is="bottom-nav" data="{{...nav_active}}"/>-->
+        <view class="bottom-nav">
+            <block wx:if="{{btnTexts}}">
+                <view class="bottom-content">
+                    <view class="total-price-box">
+                        <view class="total-price">共{{total_num}}件商品 总金额：<text>￥{{sum}}</text></view>
+                    </view>
+                    <view class="submit-order" bindtap="confirmOrder">去结算</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="bottom-content">
+                    <view class="total-price-box">
+                        <view class="total-price"></view>
+                    </view>
+                    <view class="submit-order">  <span class="edit" bindtap="deleteCartGoods">删除</span></view>
+                </view>
+            </block>
+            <view class="nav-list">
+                <navigator class="item {{home}}"  open-type='reLaunch' url='/pages/index/index'>
+                     <text class="iconfont icon-shouye"></text>
+                    <view class='nav-title'>首页</view>
+                </navigator>
+                <navigator class="item {{cate}}"  open-type='reLaunch' url='/pages/cate/cate'>
+                    <text class="iconfont icon-fenlei"></text>
+                    <view class='nav-title'>分类</view>
+                </navigator>
+                <navigator class="item active"  open-type='reLaunch' url='/pages/cart/cart' style='position:relative;'>
+                    <i class="iconfont icon-gouwuchelv"></i>
+                    <view class='nav-title'>购物车</view>
+                    <view wx:if="{{nav_active.img}}" class='cart-count' style="height:15px;width:15px;top:-5px;right:50rpx;position:absolute;">
+                        <image mode='aspectFit' style='height:15px;' src='/static/images/number/{{nav_active.img}}'></image>
+                    </view>
+                </navigator>
+                <navigator class="item {{center}}" open-type='reLaunch' url='/pages/userCenter/orderList/orderList'>
+                    <i class="iconfont icon-gerenzhongxin1"></i>
+                    <view class='nav-title'>我的</view>
+                </navigator>
+            </view>
+        </view>
+</view>

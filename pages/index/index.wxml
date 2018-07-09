@@ -1,0 +1,197 @@
+<!--index.wxml-->
+<import src='../template/template' />
+<view class="wrap">
+  <!--头部区-->
+  <view class="head-box">
+   <!--滑块视图-->
+    <swiper indicator-dots="true" autoplay="true" interval="3000" circular="true" indicator-color="rgba(255, 255, 255)" indicator-active-color="rgba(255, 211, 68,0.9)">
+      <block wx:key="1" wx:for="{{sliderList}}">
+        <swiper-item catchtap="enter_history" data-url="{{item.url}}" data-id='{{item.id}}'>
+							<image  data-id='{{item.id}}' data-page-title='{{item.name}}' mode="widthFix" src="{{img_url}}{{item.img_url}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    
+  </view>
+
+		<!-- 搜索框  -->
+    <view class="search-wrap" bindtap="goSearch">
+      <view class="location-city">
+         <i class="iconfont icon-dingwei location-icon"></i>
+        <view class='city-text'>{{currentCity}}</view>
+      </view>
+			<view class="search-inner">
+				<view class='search-input flex-row'>
+					<i class="icon iconfont icon-sousuo left"></i>
+					<input class="search-input" placeholder="请输入搜索内容" bindinput="inputContent"/>
+          <button class="search-button" bindtap="searchPublish">搜索</button>
+				</view>
+			</view>
+		</view>
+   <!-- 分割线 -->
+  <view class="cate-line"></view>
+	<!-- 分类 -->
+	<view class="cate-wrap">
+   <swiper class="cate-wrap-swiper" indicator-dots="true"    circular="true" indicator-color="rgba(255, 255, 255)" indicator-active-color="rgba(255, 211, 68,0.9)">
+    <block wx:for="{{cateList}}" wx:for-index="idx" wx:for-item="swipe">
+    <swiper-item>
+      <block  wx:for="{{swipe}}" wx:for-index="index" wx:for-item="item" >
+      <!-- 宠物分类 -->
+        <block wx:if="{{index <=4}}">
+        <view  class="cate-item" bindtap="enter_cateList" data-cid="{{item.id}}" data-cname="{{item.name}}">
+          <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+          <text class="cate-name">{{item.name}}</text>
+          <text class="cate-ename">{{item.ename}}</text>
+        </view>
+      </block>
+      
+
+
+      <!-- 宠物百科 -->
+      <block wx:if="{{item.name=='宠物百科'}}">
+        <view  class="cate-item" bindtap="enter_petarticleList" data-cid="{{item.id}}" data-cname="{{item.name}}">
+          <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+          <text class="cate-name">{{item.name}}</text>
+          <text class="cate-ename">{{item.ename}}</text>
+        </view>
+      </block>
+   <!-- 宠物医生 -->
+
+      <block wx:if="{{item.name=='宠物医生'}}">
+        <view  class="cate-item" bindtap="enter_petDoctor" data-cid="{{item.id}}" data-cname="{{item.name}}">
+          <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+          <text class="cate-name">{{item.name}}</text>
+          <text class="cate-ename">{{item.ename}}</text>
+        </view>
+      </block>
+      <!-- 宠物优选 -->
+   
+      <block wx:if="{{item.name=='宠物优选'}}">
+        <view  class="cate-item"  data-cid="{{item.id}}" data-cname="{{item.name}}">
+          <image mode="widthFix" src="{{img_url}}{{item.thumb}}"></image>
+          <text class="cate-name">{{item.name}}</text>
+          <text class="cate-ename">{{item.ename}}</text>
+        </view>
+      </block>
+
+
+
+
+      </block>
+    </swiper-item>
+      
+    </block>
+
+      
+       
+       
+
+		
+   
+
+
+    
+
+
+	</swiper>
+  
+  
+  
+  
+  </view>
+
+	<!-- 猜你喜欢 -->
+  <view class="love-wrap">
+    <view class="wrap-header">
+      <view class="header-line"></view>
+      <text class="header-text">猜你喜欢</text>
+    </view>
+    <view class="wrap-content">
+      	<block wx:key="1" wx:for="{{messageList}}">
+
+        <view class="message-item" >
+          <view class="item-left">
+            <image class="item-image" src="{{item.head_img_url}}"></image>
+          </view>
+          <view class="item-right" bindtap="messageDetail" data-mid="{{item.id}}">
+            <view class="item-right-head">
+              <view>
+               <text class="item-username">{{item.nick_name}}</text>
+              </view>
+              <view class="item-button">
+                <image class='contact-img' src='../../static/images/contact.png'></image>
+              </view>
+            </view>
+            <view >
+              <view class="item-right-content">
+              {{item.text_content}}
+              </view>
+              <view class="item-imagelist">
+                <block wx:key="1" wx:for="{{item.img_list}}" wx:for-item="image">
+                <image mode="aspectFill" class="item-imagelist-img" src="{{img_url}}{{image.thumb}}"></image>
+                </block>
+              </view>
+              <view class="item-address">
+                
+                <text class="item-addresstext">{{item.address_text}}</text>
+              </view>
+              <view class='item-time'>
+                <text class="item-timetext">{{item.time_desc}}</text>
+              </view>
+              <view class="item-bottom">
+               
+                <view class="item-nums">
+                  <view class="item-nums-left">
+
+                    <view class="item-num">
+                      <i class="icon iconfont icon-chakan1"></i>
+                      <text class="item-nums-text">浏览{{item.check_num}}次</text>
+                    </view>
+
+                  </view>
+                  <view class="item-nums-right">
+
+                    <view class="item-num">
+                      <i class="icon iconfont icon-pinglunguanli"></i>
+                      <text class="item-nums-text">{{item.message_num}}</text>
+                    </view>
+                    <view class="item-num">
+                      <i class="icon iconfont icon-dianzan-copy-copy"></i>
+                      <text class="item-nums-text">{{item.like_num}}</text>
+                    </view>
+                    <view class="item-num">
+                      <i class="icon iconfont icon-fenxiang1"></i>
+                      <text class="item-nums-text">{{item.report_num}}</text>
+                    </view>
+
+                  </view>
+
+
+                </view>
+              </view>
+            </view>
+          </view>
+        
+        </view>
+
+      </block>
+    </view>
+  </view>
+  <view class="kefu">
+   <button class='kefu_button' plain='{{true}}' open-type='contact' ><image class="kefu-img" src="../../static/images/kefu.png"></image></button>
+  </view>
+  
+		
+</view>
+<view wx:if="{{noticViewShow == true}}" class="notic-view">
+
+  <view class="contentView">
+  
+      <image class='home-image' src='../../static/images/home.png'></image>
+      <button class="getUderButton" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">确定</button>
+
+    
+  </view>
+</view>
+
+<template is="bottom-nav" data="{{...nav_active}}"/>

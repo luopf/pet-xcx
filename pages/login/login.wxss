@@ -1,0 +1,79 @@
+@import '/static/icon.wxss';
+@import '../template/template.wxss';
+.container{
+  background: #fff;
+  padding-top: 100rpx;  
+}
+.container .item{
+  position: relative;
+  border-bottom: 1px solid #E7E7E7;
+  width: 90%;
+  padding: 40rpx 0 20rpx;
+}
+.container .icon-info{
+  padding-right: 20rpx;
+  display: inline-block;
+}
+.container .input-info{
+  display: inline-block;
+  width: 60%;
+}
+.phcolor{  
+    color: #C6C6C6;  
+}
+.container .border-left{
+    color: #E8065A;
+
+}
+.container .right-info{
+  position: absolute;
+  right: 10rpx;
+  display: inline-block;
+}
+button{
+  margin-top: 80rpx;
+  width: 90%;
+}
+.container .icon-main {
+    width: 50rpx;
+    height: 50rpx;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.register {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.register input {
+	flex: 1;
+    display: flex;
+}
+.register image {
+	width: 140rpx;
+	height: 60rpx;
+}
+.register-wrap {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #E7E7E7;
+	width: 90%;
+	height: 120rpx;
+	align-items: center;
+}
+.register-wrap .icon {
+	width: 50rpx;
+	height: 50rpx;
+	margin-right: 20rpx;
+}
+.register-wrap .img {
+	width: 150rpx;
+}
+.register-wrap input {
+	flex: 1;
+}
+.container .login-button{
+    background-color: #E8065A;
+    color: #fff;
+    border-radius: 50rpx;
+}

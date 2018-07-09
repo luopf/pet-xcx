@@ -1,0 +1,114 @@
+/* pages/userCenter/userCenter.wxss */
+@import "/static/icon.wxss";
+@import "/pages/template/template.wxss";
+page {
+    -webkit-text-size-adjust: 100%;
+    font-family: "微软雅黑";
+    box-sizing:border-box;
+    font-size:28rpx;
+    width:100%;
+    height:100%;
+    background:#F0F0F0;
+}
+.content-wrap{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background:white;
+   
+
+}
+.content-wrap .header{
+  width:100%;
+  height:300rpx;
+  background:#ff6600;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-content:center;
+}
+
+.content-wrap .header .bg-img-view{
+   width:100%;
+}
+.content-wrap .header .bg-img-view .bg-img{
+  width:100%;
+  height:310rpx;
+
+}
+.content-wrap .user-info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.content-wrap .header .user-info .user-img-view{
+ 
+
+}
+.content-wrap .user-info .user-img{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 75rpx;
+  border: 2rpx solid white;
+}
+.content-wrap .user-info .user-name{
+   margin-top:30rpx;
+   color:white;
+
+}
+.content-wrap .space-line .line{
+  height: 5rpx;
+  background: #f0f0f0;
+}
+.content-wrap .menu-area{
+  background: white;
+}
+.content-wrap .menu-area .menu-item-view{
+  width: 100%;
+}
+.content-wrap .menu-area .menu-item-view .menu-item-view-header{
+  width: 100%;
+  height: 70rpx;
+  padding-left: 20rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1rpx solid #f0f0f0;
+}
+.content-wrap .menu-area .menu-item-view .menu-item-view-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.content-wrap .menu-area .menu-item-view .menu-item-view-content .menu-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  padding: 20rpx;
+
+}
+.content-wrap .menu-area .menu-item-view .menu-item-view-content .menu-item .iconfont{
+  font-size:40rpx;
+  color:#f0f0f0;
+
+}
+.content-wrap .menu-area .menu-item-view .menu-item-view-content .menu-item .iconfont.icon-fav-1{
+  font-size: 45rpx;
+}
+.content-wrap .menu-area .menu-item-view .menu-item-view-content .menu-item .menu-item-text-show{
+  font-size: 25rpx;
+}
+.content-wrap .menu-area .space-line{
+  width: 100%;
+  height: 10rpx;
+  background: #f0f0f0;
+}
+.nav-list{
+  border-top:5px solid #f0f0f0;
+}

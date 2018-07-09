@@ -1,0 +1,45 @@
+<!--pages/userCenter/addAddress/addAddress.wxml-->
+<view class="container">
+    <view class="separate"></view>
+    <view class="name-view input">
+        <text>收件人：</text>
+        <input class="name" value="{{name}}" placeholder="请输入姓名" bindinput="listenerNameInput"/>
+    </view>
+    <view class="phone-view input">
+        <text>手机号：</text>
+        <input class="phone" type="number" value="{{phone}}" placeholder="请输入手机号码" bindinput="listenerPhoneInput"/>
+    </view>
+    <view class="phone-view input">
+        <text>微信号：</text>
+        <input class="wechat-number" type="text" value="{{wechat_number}}" placeholder="请输入微信号码" bindinput="listenerWechatNumberInput"/>
+    </view>
+    <view class="phone-view input">
+        <text>省市区：</text>
+        <text style='flex: 1' bindtap="open">{{province}} {{city}} {{county}}</text>
+    </view>
+    <view class="phone-view input">
+        <text>详细地址：</text>
+        <input class="detail" type="text" value="{{detail}}" placeholder="请输入详细的地址" bindinput="listenerDetailInput"/>
+    </view>
+    <button class="save-address" data-id="{{id}}" bindtap="saveAddress">保存收货地址</button>
+
+</view>
+        <!-- 弹框 -->
+<view wx:if="{{condition}}" class="citypicker">
+<picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"
+             bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+        <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+</picker-view>
+</view>

@@ -1,0 +1,11 @@
+<!--导入公告模块的header-->
+<view class="mod-home service-centent">
+<view class="img-box">
+  <view wx:if="{{flag}}" class="if-view">
+    <block wx:key="1" wx:for="{{serviceInfo.img}}" wx:for-item="item">
+    <image mode="widthFix" class="service-img" src="{{base_url}}{{item.img_url}}"></image>
+    </block>
+  </view>
+  <view wx:wx:if="{{noData}}"> <view class="no-data">{{tip}}</view></view>
+</view>
+</view>

@@ -1,0 +1,30 @@
+@import "/static/icon.wxss";
+@import "/pages/template/template.wxss";
+/* 头部区  */
+page{
+    font-family: "微软雅黑";
+    background: white;
+}
+
+.iconfont{
+  color: #36D49F;
+  font-size: 50rpx;
+}
+
+.content{
+  margin-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content .content-image{
+    width: 100rpx;
+    height: 100rpx;
+}
+.content .content-text{
+  margin-top: 50rpx;
+  color: #9E9E9E;
+
+}
+

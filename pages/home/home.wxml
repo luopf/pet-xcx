@@ -1,0 +1,4 @@
+<!--pages/home/home.wxml-->
+<view class="wrap">
+  <button open-type="getUserInfo">进入小程序</button>
+</view>

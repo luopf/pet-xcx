@@ -1,0 +1,57 @@
+
+<import src='../template/template' />
+<view class="wrap">
+
+   <view class="head-box">
+   <!--滑块视图-->
+    <swiper indicator-dots="true" autoplay="true" interval="3000" circular="true" indicator-color="rgba(255, 255, 255)" indicator-active-color="rgba(255, 211, 68,0.9)">
+       <block wx:key="1" wx:for="{{sliderList}}"> 
+        <swiper-item>
+							<image bindtap='labelDetail' data-id='{{item.id}}' data-page-title='{{item.name}}' mode="widthFix" src="{{img_url}}{{item.img_url}}"></image>
+        </swiper-item>
+       </block> 
+    </swiper>
+    
+  </view>
+
+
+  	<!-- 搜索框  -->
+    <view class="search-wrap" bindtap="goSearch">
+			<view class="search-inner">
+				<view class='search-input flex-row'>
+					<i class="icon iconfont icon-sousuo left"></i>
+					<input class="search-input" placeholder="请输入搜索内容" bindinput="inputContent"/>
+          <button class="search-button" bindtap="searchPublish">搜索</button>
+				</view>
+			</view>
+		</view>
+ <!-- 分割线 -->
+  <view class="cate-line"></view>
+
+
+   <scroll-view class="scroll-view_H" scroll-y style="width: 100%">
+    	 <block wx:key="*this" wx:for-index="idx" wx:for="{{aticleList}}"> 
+        <view  class="aticle-item" catchtap="ent_petAticle" data-id="{{item.id}}">
+         <view class="item-left">
+          <view class="item-top">
+            <text class="item-title">{{item.title}}</text>
+          </view>
+          <view class="item-middle">
+            <view class="item-desc">
+              <text class='item-desc-text' >{{item.aticle_desc}}</text>
+            </view>
+          </view>
+          
+          <view class="item-bottom">
+            <text class="item-date">
+             {{item.add_time}}
+            </text>
+          </view>
+         </view>
+         <view class="item-right">
+          <image class="item-thumb" src="{{img_url}}{{item.img_url}}"></image>
+         </view>
+        </view>
+		 </block> 
+  </scroll-view> 
+</view>

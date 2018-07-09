@@ -1,0 +1,91 @@
+<!--pages/userCenter/orderList/orderList.wxml-->
+<import src='../../template/template' />
+<view class="container">
+
+  <!--顶部导航-->
+  <view wx:if="{{false}}" class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==99 ? 'on' : ''}}" data-current="99" bindtap="swichNav">全部</view>
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待付款</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待发货</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待收货</view>
+    <view class="swiper-tab-list {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">待评价</view>
+    <!--<view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待发货</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">已发货</view>-->
+  </view>
+
+    <view class="my-coupon" bindtap="myCoupon">
+        <view>我的优惠券</view>
+        <image class="icon-main" mode="aspectFit" src="../../../static/images/my/right_arrow.png" />
+    </view>
+
+  <!--订单列表-->
+  <view class='order-wrap'>
+    <block wx:key="1" wx:for="{{list}}" wx:for-item="item">
+      <view class="goods-item">
+        <view class="order-head" data-id="{{item.id}}">
+          <image wx:if="{{false}}" class="icon-main" src="../../../static/images/my/order_num.png" />
+          <view class="order-time">订单号 {{item.order_num}}</view>
+          <view class="order-state">{{item.state_text}}</view>
+          <!--<view class="order-detail">订单详情</view>-->
+        </view>
+        <view class="order-body" data-gid="{{}}" bindtap="gotoDetail">
+          <block wx:key="1" wx:for="{{item.goods_list}}" wx:for-item="goods">
+            <view class="goods" data-gid="{{goods.gid}}" bindtap="goodsDetail">
+              <image mode='widthFix' class="img" src="{{base_url}}{{goods.thumb}}"></image>
+              <view class="goods-info">
+                <view class="name">{{goods.goods_name}}</view>
+                <view class="property">
+                  <block wx:key="1" wx:for="{{goods.property}}" wx:for-item="property">
+                    {{property.name}}:{{property.value}}
+                  </block>
+                </view>
+              </view>
+              <view class="price-num">
+                  <view class="goods-price">￥{{goods.price}}</view>
+                  <view class="goods-num">x{{goods.count}}</view>
+                  <!--<text>合计：</text><view class="total-moneys">￥{{item.total_price}}</view>-->
+              </view>
+            </view>
+          </block>
+          <!--<view class="address">{{item.address_text}}</view>-->
+          <!--<view hidden="{{!item.express_company}}" class="express_company">快递公司：{{item.express_company}}</view>
+          <view hidden="{{!item.express_number}}" class="express_number">快递单号：{{item.express_number}}</view>-->
+        </view>
+        <view class="order-foot">
+          <view class="total-price">
+            <view>共{{item.goods_count}}件商品</view>
+          </view>
+          <view class="option" hidden="{{!item.option}}">
+            <view class="money-item">
+                <view class="text-inde">合计：</view>
+                <view class="total-money">￥{{item.total_price}}</view>
+            </view>
+            <view class="button-item">
+                <button class="{{item.option}}" type='mini' data-index="{{index}}" data-id="{{item.id}}" bindtap="{{item.option}}">{{item.option_text}}</button>
+                <button class="{{item.options}}" type='mini' data-index="{{index}}" hidden="{{!item.btn_hidden}}" data-id="{{item.id}}" bindtap="{{item.options}}">{{item.option_texts}}</button>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+      <view class="connection">
+      <button class="phone-button" open-type="contact">
+        <view class="online connection-item">
+          <image class="right-arrow" src="../../../static/images/my/service.png"></image>
+          <text class="desc">在线客服</text>
+        </view>
+      </button>
+
+      <view class="phone connection-item" bindtap="makePhoneCall">
+        <image class="right-arrow" src="../../../static/images/my/call.png"></image>
+        <text class="desc">电话客服</text>
+      </view>
+    </view>
+
+      <view class="logout" wx:if="{{is_login}}">
+        <view class="logout-button" bindtap="logout">退出登录</view>
+      </view>
+      <template is="bottom-nav" data="{{...nav_active}}"/>
+</view>

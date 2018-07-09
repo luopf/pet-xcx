@@ -1,0 +1,112 @@
+<!--pages/goods/goodsList/goodsList.wxml-->
+<import src='../../template/template'/>
+<view class="wrap">
+  <!--搜索-->
+  <view class="search-wrap flex-row">
+
+    <view class="search-left flex-row ">
+      <i class='icon iconfont icon-sousuo'></i>
+      <input class="search-text" bindinput="listenInput" value="{{keywords}}" placeholder="输入您想寻找的商品" placeholder-class="place-holder" bindchange="bindChange" bindconfirm="searchGoods" />
+      <image class="off" hidden="{{hidden}}" bindtap="clearInput" mode="scaleToFill" src="../../../static/images/my/off.png"></image>
+    </view>
+
+    <view class="search-right" bindtap="search">搜索</view>
+
+  </view>
+  <!-- 筛选区 -->
+  <view class="select-wrap">
+    <view class="select-item {{cur == 0 ? 'cur' : ''}}" data-index = "0" bindtap="changeNav" data-val="sale_quantity">
+      <view class="item-name">综合</view>
+    </view> 
+    <view class="select-item flex-row {{cur == 2 ? 'cur' : ''}}" data-index = "2" bindtap="changeNav" data-val="price">
+      <view class="item-name">价格</view>
+      <view class="item-icon flex-column">
+        <text class="unit t-sanjiao {{on == 1 ? 'on' : ''}}" data-num="1"></text>
+        <text class="unit b-sanjiao {{on == 2 ? 'on' : ''}}" data-num="21"></text>
+      </view>
+    </view>
+    <view class="select-item {{cur == 3 ? 'cur' : ''}}" data-index = "3" bindtap="changeNav" data-val="add_time">
+      <view class="item-name">时间</view>
+    </view> 
+    <!-- bindtap="changeNav" -->
+    <view class="select-item flex-row {{cur == 1 ? 'cur' : ''}}" bindtap="tap_ch" data-index = "1"  data-open="{{open}}" data-val="price">
+        <view class="item-name">筛选</view>
+        <view class="item-icon flex-column">
+          <i class='icon iconfont icon-shaixuanxuanzhong'></i>
+        </view>
+      </view>
+  </view>
+  <!-- 商品列表 -->
+  
+  <view class="goods-list">
+        <block wx:key = "1" wx:for = "{{list}}">
+          <view style='position:relative;' class="goods-item item1" bindtap="goodsDetail" data-id="{{item.id}}">
+              <view class='img-2-wrap' >
+                <image class="goods-img list-img" mode="widthFix" src="{{base_url}}{{item.img_url}}"></image>
+              </view>
+              <!-- 售罄遮罩 -->
+              <block wx:if="{{item.inventory == 0}}">
+                <view class='img-marsk flex-row center' >
+                  <image class="goods-img list-img" mode="widthFix" src="/static/images/sell_out.png"></image>
+                </view>
+              </block>
+              <!-- //售罄遮罩 -->
+            <view class="goods-name center limit-text-1 {{item.inventory == 0 ? 'sell-out-font' : ''}}" wx:if="{{item.title != null}}">{{item.title}}</view>
+            <view class="goods-name center limit-text-1 {{item.inventory == 0 ? 'sell-out-font' : ''}}">{{item.name}}</view>
+            <view class="item-bottom center flex-row">
+              <view class="price  {{item.inventory == 0 ? 'sell-out-font' : ''}}">￥{{item.price}}</view>
+            </view>
+          </view>
+        </block>
+        <!-- 加载中 -->
+        
+    </view>
+    <template is='loading-ball' data="{{...templateData}}" />
+    <!-- 侧边栏筛选 -->
+    <view wx:if="{{open}}" class="glide-side page-top {{open ? 'c-state1' : ''}}">  
+      <view class='select-title center flex-row'>筛选</view>
+      <view class='selects-wrap'>
+        <view class='select-list'>
+          <view class='item-1 flex-row'>价格区间</view>
+          <view class='select-content flex-row'>
+            <block wx:for='{{priceList}}' wx:for-index='index' wx:for-item='item'>
+                <view  class='select-item item-2 '>
+                    <view data-key="{{index}}" bindtap="changeActive" class='flex-row center {{active_key == index ? "active" : ""}}'>
+                      <block wx:if="{{index == 0}}">
+                          {{item.max}}元以下
+                      </block>
+                      <block wx:elif="{{index == priceList.length - 1}}">
+                          {{item.min}}元以上
+                      </block>
+                      <block wx:else>
+                          {{item.min}}元-{{item.max}}元
+                      </block>
+                    </view>
+                </view>
+            </block>
+            
+            
+            <!-- <view class='select-item item-2 flex-row center '>
+                <view data-key="1" bindtap="changeActive"  class='flex-row center {{active_key == "1" ? "active" : ""}}'>500元-1000元</view>
+            </view>
+            <view class='select-item item-2 flex-row center'>
+                <view data-key="2" bindtap="changeActive" class='flex-row center {{active_key == "2" ? "active" : ""}}'>1000元-2000元</view>
+            </view>
+            <view class='select-item item-2 flex-row center'>
+                <view data-key="3" bindtap="changeActive"  class='flex-row center {{active_key == "3" ? "active" : ""}}'>2000元-5000元</view>
+            </view>
+            <view class='select-item item-2 flex-row center'>
+                <view data-key="4" bindtap="changeActive"  class='flex-row center {{active_key == "4" ? "active" : ""}}'>5000元以上</view>
+            </view> -->
+          </view>
+        </view>
+      </view>
+      <view class='select-footer flex-row'>
+        <view class='cancel-btn center' data-open="{{open}}" bindtap='tap_ch'>取消</view>
+        <view class='confirm-btn center' bindtap='confirm'>确定</view>
+      </view>
+    </view> 
+   
+
+</view>
+<template is='copyright' data="{{...copyrightInfo}}"></template>

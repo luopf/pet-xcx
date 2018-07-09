@@ -1,0 +1,28 @@
+/* pages/serviceDetail/serviceDetail.wxss */
+.service-centent{
+  /* background: #EDEDED; */
+}
+.img-box{
+   display: flex;
+   justify-content: center;
+   flex-direction:column;
+   align-items: center;
+   width: 100%;
+   padding-bottom: 25rpx;
+}
+.if-view{
+   display: flex;
+   justify-content: center;
+   flex-direction:column;
+   align-items: center;
+   width: 100%;
+}
+.service-img{
+  display: flex;
+  margin-top: 25rpx;
+  width: 90%;
+}
+.no-data{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}

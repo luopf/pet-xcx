@@ -1,0 +1,304 @@
+/* 弹框 */
+.tip-wrap {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 500;
+}
+.tip-wrap .tip-cont {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  width: 90%;
+  height: 400rpx;
+  border-radius: 12rpx;
+}
+.tip-wrap .tip-cont .tip-top {
+  text-align: right;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.tip-wrap .tip-cont .off-icon {
+  width: 40rpx;
+}
+.tip-wrap .tip-cont .cont-title {
+  margin: 20rpx 0;
+  font-size: 36rpx;
+  color: #333333;
+  text-align: center;
+}
+.tip-wrap .tip-cont .cont-detail {
+  margin: 20rpx 0;
+  font-size: 30rpx;
+  color: #777;
+  text-align: center;
+}
+.tip-wrap .tip-cont .btn-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80rpx;
+}
+.tip-wrap .tip-cont .btn-wrap .btn-item {
+  width: 160rpx;
+  padding: 10rpx 0;
+  color: #ffffff;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  margin: 0 20rpx;
+}
+.tip-wrap .tip-cont .btn-wrap .btn-item.cancel {
+  background: #FF7F00;
+}
+.tip-wrap .tip-cont .btn-wrap .btn-item.sure {
+  background: #EA6360;
+}
+/* 二维码弹框 */
+/* 弹框 */
+ #qrcode-model {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 500;
+}
+#qrcode-model .tip-cont {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  width: 80%;
+  height: 590rpx;
+  border-radius: 12rpx;
+}
+#qrcode-model .tip-cont .tip-top {
+  text-align: right;
+  box-sizing: border-box;
+  padding:10rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+#qrcode-model .tip-cont .off-icon {
+  width: 40rpx;
+}
+#qrcode-model .tip-cont .cont-title {
+  padding: 0 20rpx;
+  font-size: 36rpx;
+  color: #333;
+  flex:1;
+  text-align:left;
+}
+#qrcode-model .tip-cont .cont-detail {
+  padding: 0 40rpx;
+  font-size: 30rpx;
+  color: #777;
+}
+#qrcode-model .tip-cont .cont-detail.cont-footer{
+  text-align: center;
+}
+#qrcode-model .qrcode-wrap image{
+  width: 100%;
+  height: 380rpx;
+}
+#qrcode-model .tip-cont .btn-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80rpx;
+}
+#qrcode-model .tip-cont .btn-wrap .btn-item {
+  width: 160rpx;
+  padding: 10rpx 0;
+  color: #ffffff;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  margin: 0 20rpx;
+}
+#qrcode-model .tip-cont .btn-wrap .btn-item.cancel {
+  background: #fff;
+}
+#qrcode-model .tip-cont .btn-wrap .btn-item.sure {
+  background: #EA6360;
+}
+/* 自定义底部导航 */
+.nav-list{
+  border-top: 1px solid #d9d9d9;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10rpx;
+  font-size: 12px;
+}
+.nav-list .nav-image{
+    height: 86rpx;
+    width: 86rpx;
+}
+.nav-list .nav-title{
+    text-align: center;
+    color:#9B9B9B;
+}
+.nav-list .item{ /*导航图标文字颜色*/
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:#9B9B9B;
+}
+.nav-list .item .iconfont{  /*导航图标颜色*/
+    color:#9B9B9B;
+    font-size: 25px;
+}
+.nav-list .item .nav-title{
+  font-size: 30rpx;
+}
+.nav-list .item.active{
+    color: #E40659;
+}
+.nav-list .item.active .iconfont{  /*导航图标颜色*/
+  color: inherit;
+}
+.nav-list .item.active .iconfont{
+  color: #ffd343;
+} 
+
+.nav-list .item.active .nav-title{
+  color: #ffd343;
+  font-size: 30rpx;
+}
+/* loading-ball */
+/* 基本样式 */
+
+.loding-wrap.loaded {
+  transition: opacity .25s linear;
+  opacity: 1; 
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
+.loding-wrap .loader {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 25%;
+    width: 25%;
+    height: 100rpx;
+    align-items: center;
+    justify-content: center; 
+}
+/* 动画效果：Curl */
+
+@-webkit-keyframes scale {
+0% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1; }
+
+45% {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  opacity: 0.7; }
+
+80% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1; } }
+@keyframes scale {
+0% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1; }
+
+45% {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  opacity: 0.7; }
+
+80% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1; } }
+
+.ball-pulse > view:nth-child(0) {
+-webkit-animation: scale 0.75s 0s infinite cubic-bezier(.2, .68, .18, 1.08);
+        animation: scale 0.75s 0s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.ball-pulse > view:nth-child(1) {
+-webkit-animation: scale 0.75s 0.12s infinite cubic-bezier(.2, .68, .18, 1.08);
+        animation: scale 0.75s 0.12s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.ball-pulse > view:nth-child(2) {
+-webkit-animation: scale 0.75s 0.24s infinite cubic-bezier(.2, .68, .18, 1.08);
+        animation: scale 0.75s 0.24s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.ball-pulse > view:nth-child(3) {
+-webkit-animation: scale 0.75s 0.36s infinite cubic-bezier(.2, .68, .18, 1.08);
+        animation: scale 0.75s 0.36s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.ball-pulse > view {
+background-color: #000;  /*小球颜色*/
+width: 10px;
+height: 10px;
+border-radius: 100%;
+margin: 2px;
+-webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+display: inline-block; }
+
+/* 底部版权声明 */
+.logo-wrap{
+  padding: 0 20rpx 60rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  font-size: 20rpx;
+}
+.logo-wrap .logo-name{
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  font-weight: bold;
+  color: #fff;
+  background-color: #CECECE;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 22rpx;
+}
+.logo-wrap .logo-des{
+  color: #cecece;
+  display: flex;
+  padding-top: 15rpx;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logo-wrap .logo-des .border-line{
+  border-top: 1px solid #CECECE;
+  width: 150rpx;
+  display: inline-block;
+  height: 0;
+  margin: 0 20rpx;
+}

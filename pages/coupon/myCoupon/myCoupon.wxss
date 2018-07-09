@@ -1,0 +1,105 @@
+/* pages/userCenter/orderList/orderList.wxss */
+page{
+  font-family: "微软雅黑";
+  display: block;  
+  min-height: 100%;  
+  background-color: #f3f3f3;  
+}
+.container {
+  padding: 0;
+  padding-top: 100rpx;
+  padding-bottom: 160rpx;
+  background-color: #f3f3f3;
+}
+
+/*导航栏样式*/
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #EAEAEA;
+  text-align: center;
+  line-height: 80rpx;
+  position: fixed;
+  z-index: 10;
+  top: -1rpx;
+  background: #fff;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 25%;
+  color: #777;
+}
+
+.on {
+  color: #EB4746;
+  border-bottom: 5rpx solid #EB4746;
+}
+
+/*订单样式*/
+
+.coupon-list .coupon {
+    position: relative;
+    margin-bottom: 10px;
+    color: #ffffff;
+    min-height: 160px;
+    padding: 0 10px;
+}
+.coupon-list image {
+  box-sizing: border-box;
+    width: 100%;
+    height: 160px;
+    float: left;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+
+.coupon-list .coupon-content {
+    color: #EC4045;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    height: 100%;
+    width: 100%;
+}
+.coupon-list .coupon-content .coupon-top{
+  font-size: 22px;
+  height: 70px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.coupon-list .coupon-content .coupon-bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 65px;
+  padding: 0 20px;
+}
+.coupon-list .coupon-content .coupon-bottom .top-info{
+  padding-bottom: 6px;
+  font-size: 16px;
+}
+.coupon-list .coupon-content .coupon-bottom .bottom-info{
+  font-size: 11px;
+  color: #989898;
+}
+.cf{
+  color: #989898;
+}
+.btnText{
+  position: fixed;
+  bottom: 0px;
+  z-index: 2;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  font-size: 20px;
+  border: 1px solid #EBEBEB;
+}

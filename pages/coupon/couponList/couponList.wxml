@@ -1,0 +1,33 @@
+<!--pages/userCenter/orderList/orderList.wxml-->
+<view class="container">
+<view class="top-img">
+   <image src="../../../static/images/my/coupon_top.jpg"></image>
+</view>
+  <!--订单列表-->
+  <view style="width:100%">
+    <block wx:key="1" wx:for="{{list}}" wx:for-item="item">
+        <view class="coupon-list">
+          <view class="coupon">
+            <image src="../../../static/images/my/coupon1.png"></image>
+            <view class="coupon-content"> 
+              <view class="coupon-top">
+                  <view class="top-left">{{item.name}}</view>
+                  <view class="top-right">￥ {{item['value']}}</view>
+              </view>
+              <view class="coupon-bottom">
+                  <view class="top-info">
+                    <view class="desc"> 满{{item['condition_value']}}元使用</view>
+                    <view data-index="{{index}}" class="{{item['class_text']}}" bindtap="{{item['listener_text']}}" data-id="{{item['id']}}"> <text>{{item['btn_text']}}</text></view>
+                  </view>
+                  <view class="bottom-info">有效期{{item['valid_start']}}~{{item['valid_end']}} </view>
+              </view>
+            </view>
+          </view>
+        </view>
+    </block>
+  </view>  
+</view>
+<view class="btnText">
+  <view class="btn-left" bindtap="myCoupon">我的优惠券</view>
+  <view class="btn-right" bindtap="goIndex">去使用</view>
+</view>

@@ -1,0 +1,14 @@
+<import src='../template/template' />
+<view class="container">
+
+  <block wx:for='{{list}}' wx:for-index='index' wx:for-item='item'>
+    <view class='wrap'>
+        <navigator  url='/pages/labelDetail/labelDetail?lid={{item.id}}' open-type='navigate' hover-class='navigator-hover'>
+            <image mode='widthFit' src='{{base_url}}{{item.image}}'></image>
+            <view class='goods-name'>{{item.name}}</view>
+        </navigator>
+    </view>
+  </block>
+  <!-- 加载中 -->
+	<template is='loading-ball' data="{{...templateData}}" />
+</view>

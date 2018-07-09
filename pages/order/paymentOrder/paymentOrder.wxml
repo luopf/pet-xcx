@@ -1,0 +1,73 @@
+<!--pages/order/paymentOrder/paymentOrder.wxml-->
+<view class="container">
+  <!-- 地址管理 -->
+  <view class="address-box flex-row">
+    <view class="address-left">
+      <view class="user-info flex-row">
+        <text>收货人：{{address.call_name}}</text>
+        <text>{{address.phone}}</text>
+      </view>
+      <view class="address-info">
+        收货地址：{{address.address}}
+      </view>
+    </view>
+  </view>
+
+  <view class="order-info">
+    <image src="../../../static/images/my/order_num.png"></image>
+    <view class="order-num">订单号码：{{order_num}}</view>
+    <view class="order-date">订单时间：{{add_time}}</view>
+  </view>
+
+ <!-- 商品列表 -->
+  <view class="goods-list">
+     <block wx:key="1" wx:for="{{goodsList}}" wx:for-item="goods">
+    <view class="goods-item flex-row">
+      <view class="goods-img">
+        <image mode="widthFix" src="{{base_url}}{{goods.thumb}}"></image>
+      </view>
+      <view class="goods-info">
+        <view class="goods-name">{{goods.goods_name}}</view>
+        <view class="property">
+            <block wx:key="1" wx:for="{{goods.property}}" wx:for-item="property">
+              {{property.name}}:{{property.value}}
+            </block>
+        </view>
+      </view>
+      <view class="other-info">
+        <view class="price">￥{{goods.price}}</view>
+        <view class="count">×{{goods.count}}</view>
+      </view>
+    </view>
+    </block>
+  </view>
+
+
+   <view class="price-name">
+     <view class="item-info">
+        <view>订单金额:</view>
+        <view>{{real_money}}</view>
+     </view>
+      <view class="item-info">
+        <view>减免:</view>
+        <view>-{{min}}</view>
+     </view>
+     <view class="item-info">
+        <view>运费:</view>
+        <view>+{{fee}}</view>
+     </view>
+     <view class="item-info">
+        <view>需支付:</view>
+        <view>{{money}}</view>
+     </view>
+    </view>
+    
+      <!-- 合计:
+      <view class="price">￥{{sum}}</view>
+    </view> -->
+
+    <view class="pay-area">
+     <view  bindtap="payOrder" data-oid="{{oid}}" class="payment" >微信支付</view>
+     <view bindtap="daofu" class="daofu" data-oid="{{oid}}">货到付款</view>
+    </view>
+</view>

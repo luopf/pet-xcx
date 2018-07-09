@@ -1,0 +1,150 @@
+<!--pages/order/confirmOrder/confirmOrder.wxml-->
+<view class="wrap">
+  <!-- 地址管理 -->
+  <view class="address-box flex-row" bindtap="selectAddress">
+    <view class="address-left" wx:if="{{address.phone}}">
+      <view class="user-info flex-row">
+        <text>收货人：{{address.call_name}}</text>
+        <text>{{address.phone}}</text>
+      </view>
+      <view class="address-info">
+        收货地址：{{address.address.city}}{{address.address.detail}}
+      </view>
+    </view>
+    <view class="add-address"  wx:else catchtap="addAddress">点击添加地址</view>
+    <view class="address-right">
+      <image mode="scaleToFill" src="../../../static/images/my/right_arrow.png"></image>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="goods-list">
+
+    <block wx:key="1" wx:for="{{goodsList}}">
+    <view class="goods-item flex-row">
+      <view class="goods-img">
+        <image mode="widthFix" src="{{base_url}}{{item.img_url}}"></image>
+      </view>
+      <view class="goods-info">
+        <view class="goods-name">{{item.name}}</view>
+        <view class="property">{{item.property.property_text}}</view>
+      </view>
+      <view wx:if="{{item.updown == 1}}" class="other-info">
+        <view class="price">￥{{item.price}}</view>
+        <view class="count">×{{item.goods_count}}</view>
+      </view>
+      <view wx:else style="color: #999999;font-size: 32rpx; align-items: center;display: flex">该商品已下架</view>
+    </view>
+    </block>
+  </view>
+
+
+    <view class="express flex-row">
+        <text>商品价格</text><text class="grey">￥{{sum}}</text>
+    </view>
+    <view class="coupon-wrap flex-row">
+        <view>商城优惠券</view>
+        <view class="flex-row coupon-name" wx:if="{{coupon}}">
+            <view bindtap="useCoupon" class="coupon-value">
+                {{coupon_name}}
+            </view>
+            <image class="right-arrow" src="../../../static/images/my/down_arrow.png"></image>
+        </view>
+        <view wx:else style="color: #999999">暂无可用优惠券</view>
+    </view>
+    <view class="express flex-row">
+        <text>配送方式</text><text wx:if="{{orderFee}}" class="grey">快递 ￥{{orderFee}}</text><text wx:else>快递 包邮</text>
+    </view>
+
+    <view class="express flex-row">
+        <text>合计</text><text class="grey">￥{{totalPrice}}</text>
+    </view>
+
+
+
+    <view class="reserve">
+        <view>买家留言</view>
+            <view class="message-view">
+            <input bindinput="messageCont" placeholder="选填" />
+        </view>
+    </view>
+
+    <view class="protocol">
+        <image class="select selected" bindtap="readProtocol" data-index="{{true}}" src="../../../static/images/my/selecteds.png" wx:if="{{isRead}}"></image>
+        <image class="select selecting" bindtap="readProtocol" data-index="{{false}}" src="../../../static/images/my/select.png" wx:else></image>
+        <text bindtap="gotoProtocol">我接受卖家的相关协议和须知</text>
+    </view>
+
+    <view class="connection">
+        <button class="phone-button" open-type="contact">
+            <view class="online connection-item">
+                <image class="right-arrow" src="../../../static/images/my/service.png"></image>
+                <text class="desc">在线客服</text>
+            </view>
+        </button>
+
+        <view class="phone connection-item" bindtap="makePhoneCall">
+            <image class="right-arrow" src="../../../static/images/my/call.png"></image>
+            <text class="desc">电话客服</text>
+        </view>
+    </view>
+
+    <view class="logout" wx:if="{{is_login == 1}}">
+        <view class="logout-button" bindtap="logout">退出登录</view>
+    </view>
+
+  
+  <!-- 底部 -->
+  <view class="bottom-wrap flex-row">
+    <view class="bottom-left">
+      <text class="total-price">总金额：<text>￥{{realPrice}}</text></text>
+    </view>
+    <view class="bottom-right" bindtap="submitOrder">提交订单</view>
+  </view>
+
+    <!-- 弹框 -->
+    <view class="tip-wrap" hidden="{{tipHidden}}">
+      <view class="tip-cont">
+        <view class="tip-top">
+          <image class="off-icon" bindtap="offTip" mode="widthFix" src="../../../static/images/my/off_icon.png"></image>
+        </view>
+        <view class="cont-detail">请先登录！</view>
+        <view class="btn-wrap">
+          <view class="btn-item cancel" bindtap="offTip">取消</view>
+          <view class="btn-item sure" bindtap="goRegister">确定</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="property-opt-wrap" hidden="{{maskHidden}}">
+        <view class="other-wrap" bindtap="offMask"></view>
+        <view class="property-detail">
+            <view class="detail-title">
+                <text>请选择优惠券</text>
+                <image class="close-coupon" src="../../../static/images/my/off_icon.png" bindtap="offMask"></image>
+            </view>
+            <block wx:for="{{coupon}}">
+                <view class="coupon-item" data-index="{{index}}" bindtap="checkCoupon">
+                    <view class="left-col">
+                        <image class="select selected" src="../../../static/images/my/selecteds.png" wx:if="{{index == selectCoupon}}"></image>
+                        <image class="select selecting" src="../../../static/images/my/select.png" wx:else></image>
+                    </view>
+                    <view class="right-col">
+                        <view class="coupon-desc coupon-text">满{{item.condition_value}}元减{{item.value}}元</view>
+                        <view class="coupon-valid coupon-text">有效期{{item.valid_start}}--{{item.valid_end}}</view>
+                    </view>
+                </view>
+            </block>
+            <view class="coupon-item" data-index="-1" bindtap="checkCoupon">
+                <view class="left-col">
+                    <image class="select selected" src="../../../static/images/my/selecteds.png" wx:if="{{-1 == selectCoupon}}"></image>
+                    <image class="select selecting" src="../../../static/images/my/select.png" wx:else></image>
+                </view>
+                <view class="right-col">
+                    <view class="coupon-desc coupon-text">不使用优惠券</view>
+                </view>
+            </view>
+        </view>
+        <view class="buttom-area" bindtap="offMask">确认</view>
+    </view>
+</view>

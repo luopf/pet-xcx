@@ -1,0 +1,9 @@
+<!--公共header模块-->
+<view class="header">
+    <view class="main" >
+        <input class="input" bindinput="inputKeyWord"  placeholder="请输入您要搜索的商品" type="search" placeholder-class="place-holder" />
+        <view class="search">
+            <image class="serach-button" src="../../static/images/my/2.png" bindtap="jumpToSearch" data-keyword="{{keyWord}}"></image>
+        </view>
+    </view>
+</view>

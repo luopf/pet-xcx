@@ -1,0 +1,4 @@
+<!--pages/history/history.wxml-->
+<view class="wrap">
+   <web-view src="{{sliderInfo.url}}"></web-view>
+</view>

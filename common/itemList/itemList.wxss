@@ -1,0 +1,63 @@
+/** 购物车列表 **/
+/** 1、基础布局 **/
+
+
+/***商品推荐商品样式***/
+.recommend-goods-diplay-area{
+    padding: 10rpx ;
+    background: #fff;
+}
+.recommend-goods-diplay-area .recommend-title{
+    margin-top: 10rpx;
+    padding: 5rpx 0;
+    width: 100%;
+    display: flex;
+    font-size: 11pt;
+    border-bottom: 1rpx solid #e5e5e5;
+    margin-bottom: 5rpx;
+}
+.recommend-goods-diplay-area .recommend-goods-list{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+}
+image {
+    width:100%;
+    height:240rpx;
+    display:inline-block;
+    overflow:hidden;
+
+}
+
+.recommend-goods-list .goods-item{
+    width: 46%;
+    padding: 7rpx;
+    float: left;
+    font-size: 10pt;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    border-radius: 3rpx;
+    margin: 5rpx;
+    border: 1rpx solid #e7e7e7;
+}
+.goods-ori-price{
+    text-decoration:line-through;
+    color:#aaa;
+}
+.goods-price{
+    color:#f45341;
+}
+.buy-now{
+    position: absolute;
+    background: #FF5C00;
+    right: 10rpx;
+    color:#fff;
+    padding: 4rpx;
+    border-radius: 5rpx;
+    bottom: 10rpx;  
+}
+

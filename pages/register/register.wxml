@@ -1,0 +1,30 @@
+<view class="container">
+    <view class="phone-view input">
+        <input class="phone" type="number" value="{{phone}}" placeholder="手机号" bindinput="listenerPhoneInput"/>
+        <text class="warning">{{phoneWarning}}</text>
+    </view>
+    <view class="phone-view input">
+        <input class="detail" type="text" valnue="{{detail}}" placeholder="手机验证码" bindinput="listenerDetailInput"/>
+        <text class="warning" bindtap="getSmsCode">获取验证码</text>
+    </view>
+    <button class="save-address" data-id="{{id}}" bindtap="saveAddress">保存收货地址</button>
+</view>
+        <!-- 弹框 -->
+<view wx:if="{{condition}}" class="citypicker">
+<picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"
+             bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+        <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+</picker-view>
+</view>

@@ -1,0 +1,19 @@
+<!-- <block  wx:if='{{lodding}}'>
+  <view class='loaded loding-wrap'>
+      <view class="loader">
+        <view class="loader-inner ball-pulse">
+          <view></view>
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+    </view>
+  </block>
+<block  wx:if='{{lodding}}'>
+  <view class=''>加载中</view>
+</block> -->
+<!-- demo.wxml -->
+
+
+
+

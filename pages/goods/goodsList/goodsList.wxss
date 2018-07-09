@@ -1,0 +1,231 @@
+/* pages/goods/goodsList/goodsList.wxss */
+@import "../../../static/icon.wxss";
+@import "../../template/template.wxss";
+/*搜索框*/
+page {
+  background: #fff;
+}
+.search-wrap {
+  padding: 20rpx;
+  background: #ffffff;
+}
+.search-wrap .search-left {
+  flex: 1;
+  height: 60rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+.search-wrap .search-left image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.search-wrap .search-left input {
+  display: flex;
+  flex: 1;
+  height: 50rpx;
+  min-height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  align-items: center;
+}
+.search-wrap .search-right {
+  height: 60rpx;
+  color: #333;
+  padding: 0 20rpx;
+  line-height: 60rpx;
+  margin-left: 20rpx;
+  border-left: 1px solid #ccc;
+}
+/* 筛选区 */
+.select-wrap {
+  border-bottom: 1px solid #DEDEDE;
+  background: #ffffff;
+  height: 100rpx;
+  color: #3A3A3A;
+  font-size: 32rpx;
+}
+.select-wrap .select-item {
+  text-align: center;
+  line-height: 100rpx;
+  width: 25%;
+  justify-content: center;
+  float: left;
+}
+.select-wrap .select-item.cur {
+  color: #333;
+}
+.select-wrap .select-item .item-name{
+  border-bottom: 2px solid #fff;
+  display:inline-block; 
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  top: -3px;
+}
+/* 导航优化 */
+.select-wrap .select-item.cur .item-name{
+  border-bottom: 2px solid #888;
+  display:inline-block; 
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  top: -3px;
+}
+.select-wrap .select-item .item-icon {
+  align-items: center;
+  padding-left: 4rpx;
+  justify-content: center;
+  position: relative;
+  top: -4px;
+}
+.select-wrap .select-item .unit {
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  margin: 2rpx 0;
+}
+.select-wrap .select-item .unit.t-sanjiao {
+  border-bottom: 14rpx solid #CCCCCC;
+}
+.select-wrap .select-item .unit.t-sanjiao.on {
+  border-bottom: 14rpx solid #333;
+}
+.select-wrap .select-item .unit.b-sanjiao.on {
+  border-top: 14rpx solid #333;
+}
+.select-wrap .select-item .unit.b-sanjiao {
+  border-top: 14rpx solid #CCCCCC;
+}
+/* 商品列表 */
+.goods-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20rpx 10rpx;
+  width: 100%;
+}
+.goods-list .goods-item {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 49.5%;
+  padding-bottom: 60rpx;
+  background: #ffffff;
+}
+
+.goods-list .goods-item.item2 {
+  border-left: 1rpx solid #f1f1f1; 
+}
+.goods-list .goods-item .goods-img {
+  width: 100%;
+}
+.goods-name {
+  box-sizing: border-box;
+  padding-top: 10rpx;
+ 
+  color: #323232;
+}
+.goods-list .goods-item .item-bottom {
+  display: flex;
+  flex-direction: row;
+  padding: 5rpx 10rpx;
+  align-items: center;
+  font-size: 24rpx;
+}
+.price {
+  color: #222;
+}
+.goods-item .item-bottom .cart-icon {
+   width:  50rpx;
+   height: 50rpx;
+   padding: 5rpx;
+   box-sizing: border-box;
+   border: 1rpx solid #ccc;
+   border-radius: 6rpx;
+}
+.goods-item .item-bottom .cart-icon image {
+  width: 100%;
+  height: 100%;
+}
+.icon-shaixuanxuanzhong{
+  font-size: 27rpx;
+  position: relative;
+  top: 2px;
+  color: inherit;
+}
+/* 侧边栏样式 */
+.glide-side{
+  top: 0;
+}
+.page-top{
+  position: fixed;
+  right: 0;
+  width: 80%;
+  background:#fff;
+  z-index:999;
+  height: 100%;
+  border: 1px solid #f2f2f2;
+}
+
+.glide-side .select-title{
+  width:100%;
+  height: 80rpx;
+  border-bottom: 1px solid #EEEEEE;
+}
+.glide-side .select-list{
+  padding-left: 20rpx;
+  width:100%;
+  border-bottom: 1px solid #EEEEEE;
+  box-sizing: border-box;
+}
+.glide-side .select-list .select-content{
+  font-size: 23rpx;
+  flex-wrap: wrap;
+}
+/* F0F2F5 */
+.glide-side .select-list .item-1{
+  align-items: center;
+}
+.glide-side .select-list .item-2>view{
+  background-color: #F0F2F5;
+  color: #222;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+.glide-side .select-list .item-2>view.active{
+  color: #fff;
+  background-color: #FF215B;
+}
+.glide-side .select-footer {
+  height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.glide-side .select-footer>view{
+  width: 40%;
+  color: #A6A6A6;
+}
+.glide-side .select-footer .confirm-btn{
+  background-color: #FF215B;
+  color: #fff;
+  display: flex;
+}
+.glide-side .select-footer .cancel-btn{
+  display: flex;
+}
+/* 图片蒙版 */
+.img-marsk{
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  height: 360rpx;
+  padding: 80rpx;
+  width: 100%;
+}
+.sell-out-font{
+  color: #939393;
+}

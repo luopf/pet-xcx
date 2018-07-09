@@ -1,0 +1,27 @@
+<import src='../template/template' />
+<!--商品分类-->
+<view class=''>
+<view>
+    <view class=''>
+        <image mode='widthFix' src='{{base_url}}{{label_img}}'></image>
+    </view>
+    <text class='label_detail'>{{desc || '专题详情'}}</text>
+</view>
+
+  <!-- 商品列表 -->
+  <view class="goods-list">
+        <block wx:key = "1" wx:for = "{{list}}">
+          <view class="goods-item item1" bindtap="goodsDetail" data-id="{{item.id}}">
+            <view class='img-2-wrap'>
+                <image class="goods-img" mode="widthFix" src="{{base_url}}{{item.img_url}}"></image>
+            </view>
+            <view wx:if='{{item.title}}' class="brand center">{{item.title}}</view>
+            <view class="goods-name center limit-text-2">{{item.name}}</view>
+            <view class="item-bottom center">
+                <view class='price-val'>￥{{item.price}}</view>
+            </view>
+          </view>
+        </block>
+    </view>
+    <template is='loading-ball' data="{{...templateData}}" />
+</view>

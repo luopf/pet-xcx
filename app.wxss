@@ -1,0 +1,194 @@
+/**app.wxss**/
+view{
+  box-sizing: border-box;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box !important;
+  background-color: #F2F2F2;
+} 
+.hidden{
+  display: none !important;
+}
+
+/**公共flex方法**/
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: nowrap; */
+}
+.a-center{
+  align-items: center;
+}
+.flex-column{
+  display: flex;
+  flex-direction:column;
+  /* flex-wrap:nowrap; */
+}
+.flex-js-between{
+  justify-content: space-between;
+}
+.flex-ai-around{
+  align-items: space-between;
+}
+page,.place-holder {
+  font-family: "微软雅黑";
+}
+page {
+  background-color: #fff;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.inline{
+      display: inline-block;
+}
+
+/* 我的 */
+.icon{
+      margin-right: 10rpx;
+}
+.icon.search-icon{
+  width: auto;
+  height: auto;
+}
+.icon-line{
+      display: inline-block;
+}
+.list-img-wrap{
+       width: 160rpx;
+}
+.list-img{
+      width: 100%;
+      border-radius: 6rpx;
+}
+/* 一行两列图片wrap */
+.img-2-wrap{
+  /* border: 1px solid red; */
+  height: 360rpx;
+  width: 100%;
+  display: flex;
+  padding:0 30rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+.img-2-wrap image{
+  width: 100%;
+}
+/* 图片默认样式修改 */
+image{
+  width: 100%;
+  height: 106px;
+}
+/* 模态框 */
+#marsk{  
+  width:100%; 
+  height:100%; 
+  background:rgba(0,0,0,0.6);
+  position:fixed; 
+  left:0px; 
+  top:0px; 
+  z-index:1000; 
+}
+#marsk-inner-wrap{
+  border-radius: 6rpx;
+  width: 450rpx;
+  height: 560rpx;
+  z-index: 99999;
+  position: fixed;
+  margin: 0 auto;
+  left: 0rpx;
+  right: 0rpx;
+  top: 300rpx;
+  bottom: 300rpx;
+}
+
+/* 普通左右padding */
+.norm-wrap{
+  padding: 11rpx;
+}
+
+/* 限制行数:单行带省略号，多行待省略号 */
+.limit-text-2{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+}
+.limit-text-1{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+/*下拉加载状态显示：别扯了，我们也是有底线的*/
+.tip-text{
+  padding: 100rpx;
+  color: #777;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+/*列表标题右侧的：更多*/
+.get-more{
+  padding: 30rpx 10rpx;
+  text-align:center;
+  color: #888;
+  /* background-color: #fff; */
+}
+
+/* 公共样式颜色 */
+.price-val{
+  color: #222222;
+}
+.brand{
+  color: #333;
+  font-size: 26rpx;
+}
+.goods-name{
+  color: #666;
+}
+.points-val{
+  color: #FB6D09;
+}
+.flex{
+  flex:1;
+}
+/* 按钮包装 */
+.btn-wrap{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.btn-wrap button:nth-child(n+1){
+  margin-top:20rpx; 
+}
+button[type="warn"] {
+color:#FFFFFF;
+background-color:#EA5F72;
+}
+/* 搜索框 */
+.center{
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/* item样式 */
+.item-1{
+  width: 100%;
+  height: 80rpx;
+}
+.item-2{
+  width: 50%;
+  height: 80rpx;
+  padding: 10rpx;
+}

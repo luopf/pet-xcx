@@ -1,0 +1,48 @@
+<!--services.wxml-->
+
+<!--导入公告模块的header-->
+<view class="mod-home service-centent">
+
+    <!--滚动banner-->
+    <view class="section slider" wx:if="{{is_swiper}}">
+
+      <!--滑块视图-->
+      <swiper indicator-dots="true" autoplay="true" interval="3000">
+        <block wx:key="1" wx:for="{{sliderList}}">
+          <swiper-item>
+            <image src="{{base_url}}{{item.img_url}}" class="slider-image" mode="aspectFit" />
+          </swiper-item>
+        </block>
+      </swiper>
+
+    </view>
+      
+
+<!--服务列表-->
+<view class="service-box">
+    <block wx:key="1" wx:for="{{serviceList}}" wx:for-item="item">
+        
+          <image bindtap="serviceImg" data-sid="{{item.id}}" mode="aspectFit" class="service-icon" src="{{base_url}}{{item.icon}}"></image>
+         
+    </block>
+</view>
+    <!--<view class="service-box">
+      <view class="service-info">
+        <text class="service-name">上门开锁</text>
+         <image class="service-icon" src="http://192.168.1.124/qjyj/upload/1.png"></image>
+      </view>
+      <view class="service-info">
+        <text  class="service-name">上门开锁</text>
+      </view>
+      <view class="service-info">
+       <text  class="service-name">上门开锁</text>
+      </view>
+      <view class="service-info">
+       <text  class="service-name">上门开锁</text>
+      </view>
+      <view class="service-info">
+       <text  class="service-name">上门开锁</text>
+      </view>
+    </view>-->
+
+</view>

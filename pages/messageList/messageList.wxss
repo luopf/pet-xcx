@@ -1,0 +1,174 @@
+@import "/static/icon.wxss";
+@import "/pages/template/template.wxss";
+.wrap{
+  padding-bottom: 75rpx;
+}
+ .message-item{
+  padding-top: 25rpx;
+  padding-bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #F7F7F7;
+}
+.message-item .item-image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.message-item .item-left{
+  width: 120rpx;
+  padding-left:20rpx;
+
+}
+.message-item .item-right{
+  margin-left: 10rpx;
+  flex: 1;
+  padding-right:50rpx;
+
+
+}
+.message-item .item-right .item-right-head{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.message-item .item-right .item-right-head .item-username{
+  font-size: 30rpx;
+  color: #3077c8;
+  margin-top:10rpx;
+
+}
+.message-item .item-right .item-right-head .item-button{
+  display: flex;
+  flex-direction: row;
+}
+.message-item .item-right .item-right-head .item-button .status-text{
+  border:1rpx solid #FF6565;
+  color:#FF6565;
+  padding:11rpx;
+  border-radius:10rpx;
+
+}
+.message-item .item-right .item-right-head .contact-img{
+  width: 120rpx;
+  height: 50rpx;
+}
+.message-item .item-right .item-right-head .item-phone{
+  width: 150rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+  float: right;
+  background: #FF5F5F;
+  color: white;
+}
+.message-item .item-right .item-right-head .item-label{
+  width: 160rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+  float: right;
+  border: 2rpx solid #FF5F5F;
+  background: white;
+  color: #FF5F5F;
+}
+.message-item .item-right .item-right-content{
+  padding-top: 10rpx;
+  width: 100%;
+  flex: 1;
+}
+.message-item .item-right .item-right-content .item-imagelist{
+  display: flex;
+  flex-direction: row;
+   flex-wrap:wrap-reverse;
+   flex: 1;
+}
+.message-item .item-imagelist-img{
+  width: 160rpx;
+  height: 160rpx;
+  margin: 10rpx;
+  
+}
+.message-item .item-address .item-addressicon{
+  color: #367BC9;
+}
+
+.message-item .item-address .item-addresstext{
+  color: #367BC9;
+  font-size: 23rpx;
+}
+.message-item  .item-time {
+  margin-top: 15rpx;
+}
+.message-item  .item-time .item-timetext{
+  color: #C8C8C8;
+  font-size: 25rpx;
+}
+.message-item .item-bottom{
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.message-item .item-bottom {
+  font-size: 24rpx;
+  color: #C8C8C8;
+}
+.message-item .item-bottom .item-nums{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.message-item .item-bottom .item-nums .item-num{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.message-item .item-bottom .item-nums .item-nums-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.message-item .item-bottom .icon{
+   font-size: 30rpx;
+   margin-right:0rpx;
+   color:#999999;
+}
+.message-item .item-bottom .item-nums-text{
+  padding-right:20rpx;
+  padding-left:8rpx;
+  font-size:25rpx;
+  color:#999999;
+
+  
+}
+.no-list-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.no-list-data .nodataview{
+  margin-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.no-list-data .image{
+  width:200rpx;
+  height:200rpx;
+
+}
+.no-list-data .text{
+  margin-top:50rpx;
+  color:#AAAAAA;
+  font-size:45rpx;
+
+}
+iconfont.clicked{
+  color: #FF5F5F;
+}

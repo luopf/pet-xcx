@@ -1,0 +1,110 @@
+    <!-- 弹框 -->
+    <template name="tip-model">
+        <view class="tip-wrap" hidden="{{tipHidden||false}}">
+          <view class="tip-cont">
+            <view class="tip-top">
+              <image class="off-icon" bindtap="{{cancel_call}}" mode="widthFix" src="/static/images/off_icon.png"></image>
+            </view>
+            <view class="cont-title">{{tipTitle || '提示1'}}</view>
+            <view class="cont-detail">{{tipContent || '操作提示'}}</view>
+            <view class="btn-wrap">
+              <view class="btn-item cancel" bindtap="{{cancel_call}}">{{cancel_btn || '取消'}}</view>
+              <view wx:if="{{confirm_btn}}" class="btn-item sure" bindtap="{{confirm_call}}">{{confirm_btn || '确定'}}</view>
+            </view>
+          </view>
+        </view>
+    </template>
+
+    <!-- 弹框:弹出二维码 -->
+    <template name="qrcode-model">
+        <view id="qrcode-model" hidden="{{tipHidden}}">
+            <view class="tip-cont">
+            <view class="tip-top">
+                <view class="cont-title">{{tipTitle || '扫码核销'}}</view>
+                <image class="off-icon" bindtap="{{cancel_call}}" mode="widthFix" src="/static/images/off_icon.png"></image>
+            </view>
+            <!-- <view class="cont-title">{{tipTitle || '扫码核销'}}</view> -->
+            <view class="cont-detail">{{tipContent || '订单号：--'}}</view>
+            <view class="qrcode-wrap">
+                <image mode='aspectFit' src='{{_url}}'></image>
+            </view>
+            <view class="cont-footer cont-detail">{{tipFooter||'等待核销员扫码核销'}}</view>
+            </view>
+        </view>
+    </template>
+
+    <!--三栏底部导航-->
+    
+    <template name="bottom-nav">
+        <view class="nav-list">
+            <navigator class="item {{home}}"  open-type='reLaunch' url='/pages/index/index'>
+                 <text class="iconfont icon-shouye3"></text>
+                <view class='nav-title'>首页</view>
+            </navigator>
+            <navigator class="item {{cate}}"  open-type='reLaunch' url='/pages/cate/cate'>
+                <text class="iconfont icon-icon"></text>
+                <view class='nav-title'>分类</view>
+            </navigator>
+            <navigator class="item {{publish}}"  open-type='reLaunch' url='/pages/publish/publish'>
+                <text class="iconfont icon-fabu1"></text>
+                <view class='nav-title'>发布</view>
+            </navigator>
+            <navigator class="item {{message}}"  open-type='reLaunch' url='/pages/message/message'> 
+                 <text class="iconfont icon-xiaoxi2"></text>
+                <view class='nav-title'>消息</view>
+            </navigator>
+        
+            <navigator class="item {{center}}" open-type='reLaunch' url='/pages/userCenter/userCenter/userCenter'> 
+                <i class="iconfont icon-wode6"></i>
+                <view class='nav-title'>我的</view>
+            </navigator>
+        </view>
+    </template>
+
+    <!--两栏底部导航-->
+    <template name="bottom-nav-2">
+        <view class="nav-list">
+            <navigator class="item {{home}}"  open-type='reLaunch' url='/pages/index/index'> 
+                 <text class="iconfont icon-shouye"></text>
+                <view class='nav-title'>首页</view>
+            </navigator>
+            <navigator class="item {{center}}" open-type='reLaunch' url='/pages/points/userCenter/userCenter/userCenter'> 
+                <i class="iconfont icon-gerenzhongxin1"></i>
+                <view class='nav-title'>我的</view>
+            </navigator>
+        </view>
+    </template>
+
+    <!-- 动态小球加载中 -->
+    <template name='loading-ball'>
+        <block  wx:if='{{loadingBall}}'>
+            <view wx:if='{{loadingBall}}' class='loaded loding-wrap'>
+                <view class="loader">
+                    <view class="loader-inner ball-pulse">
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </template>
+
+     <!-- 动态小球加载中 -->
+     <template name='test'>
+        <view class='flex-row center'>SUCCESS</view>    
+     </template>
+
+     <!-- 底部版权与技术支持提供声明 -->
+    <template name='copyright'>
+        <block wx:if="{{copyright}}" >
+        <view class='logo-wrap'>
+            <view class='logo-name'>{{title?title:'DOOK'}}</view>
+            <view class='logo-des'>
+            <view class='border-line'></view>
+            <view class=''>{{content?content:'DOOK提供技术和电商支持'}}</view>
+            <view class='border-line'></view>
+            </view>
+        </view>
+        </block>
+    </template>

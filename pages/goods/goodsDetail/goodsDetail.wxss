@@ -1,0 +1,441 @@
+@import "../../../app.wxss";
+@import "../../../wxParse/wxParse.wxss";
+@import "/static/icon.wxss";
+page {
+  background: #F0F0F0;
+  height: 100%;
+  font-size: 28rpx;
+  -webkit-overflow-scrolling: touch;
+}
+.page{
+  height: 100%;
+  background: white;
+}
+.wrap-header{
+  width: 100%;
+  height: 10rpx;
+  background: #F0F0F0;
+}
+.wrap {
+  display:flex;
+  flex-direction:column;
+  box-sizing:border-box;
+  background:white;
+  padding:20rpx;
+
+
+}
+
+ .message-item{
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+.message-item .item-top{
+  display: flex;
+  flex-direction: row;
+}
+.message-item .item-top .item-top-left .item-image{
+  width: 100rpx;
+  height: 100rpx;
+  
+}
+.message-item .item-top .item-top-left{
+  width: 120rpx;
+}
+.message-item .item-top .item-top-right{
+  margin-left: 10rpx;
+  flex: 1;
+  padding-right:30rpx;
+
+}
+.message-item .item-top .item-top-right .item-right-head{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.message-item .item-top  .item-top-right .item-right-head .item-username{
+  font-size: 30rpx;
+  color: #3077c8;
+  margin-top:10rpx;
+}
+.message-item .item-top .item-top-right .item-right-head .item-button{
+  display: flex;
+  flex-direction: row;
+}
+.message-item .item-top .item-top-right .item-right-head .contact-img{
+  width: 120rpx;
+  height: 50rpx;
+}
+.message-item .item-top .item-top-right .item-right-head .item-phone{
+  width: 150rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+  float: right;
+  background: #FF5F5F;
+  color: white;
+}
+.message-item .item-top .item-top-right .item-right-head .item-label{
+  width: 160rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+  float: right;
+  border: 2rpx solid #FF5F5F;
+  background: white;
+  color: #FF5F5F;
+}
+.message-item .item-top .item-top-right .item-right-content{
+  padding-top: 10rpx;
+  width: 100%;
+  flex: 1;
+}
+.message-item .item-right .item-imagelist{
+  width: 100%;
+  padding-top:10rpx;
+
+}
+.message-item .item-right .item-right-content .item-imagelist{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.message-item .item-imagelist-img{
+  width: 100%;
+  height:500rpx;
+  margin-top:10rpx;
+
+  
+}
+
+
+.message-item .item-pet{
+
+}
+.message-item .item-pet .item-petdetail{
+  width: 100%;
+  border: 1rpx solid #F0F0F0;
+  padding: 5rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+  border-radius:15rpx;
+
+} 
+.message-item .item-pet .item-petdetail .item-petdetail-left{
+  padding: 5rpx 10rpx;
+
+}
+.message-item .item-pet .item-petdetail .item-petdetail-left .item-petdetail-left-text{
+  color: #397FBF;
+}
+.message-item .item-pet .item-petdetail .item-petdetail-line{
+  width: 3rpx;
+  height: 40rpx;
+  background: #F0F0F0;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.message-item .item-pet .item-petdetail .item-petdetail-right{
+  margin-left: 20rpx;
+}
+.item-petheader{
+   flex: 1;
+  height: 50rpx;
+  margin-top: 8rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.item-petheader .pet-text{
+  color: #3077C8;
+  border: 2rpx solid #3077C8;
+  border-radius: 10rpx;
+  padding: 5rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.item-petmiddle{
+   flex: 1;
+  height: 50rpx;
+  margin-top: 8rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+.message-item .item-address{
+  margin-top: 10rpx;
+}
+.message-item .item-address{
+  margin-top: 10rpx;
+}
+.message-item .item-time{
+  margin-top: 15rpx;
+}
+.message-item .item-time .item-timetext{
+  color: #C8C8C8;
+  font-size: 25rpx;
+}
+
+.message-item .item-bottom .item-nums{
+   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.message-item .item-bottom .item-num{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.message-item .item-bottom .item-num.favorite{
+  padding-left:5rpx;
+  padding-right:5rpx;
+  padding-top:0rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+
+}
+.message-item .item-bottom .item-num.favorite .iconfont{
+  font-size:35rpx;
+
+}
+
+
+
+.message-item .item-bottom .item-nums .item-nums-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.message-item .item-bottom .icon{
+   font-size: 30rpx;
+   margin-right:0rpx;
+   color:#999999;
+}
+.message-item .item-bottom .item-nums-text{
+  padding-right:20rpx;
+  padding-left:8rpx;
+  font-size:25rpx;
+  color:#999999;
+
+  
+}
+.item-petmiddle .pet-text{
+  color: #3077C8;
+  border: 2rpx solid #3077C8;
+  border-radius: 10rpx;
+  padding: 5rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+  font-size: 30rpx;
+   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.item-petbottom{
+   flex: 1;
+  height: 50rpx;
+  margin-top: 8rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.item-petbottom .pet-text{
+  color: #3077C8;
+  border: 2rpx solid #3077C8;
+  border-radius: 10rpx;
+  padding: 5rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+  font-size: 30rpx;
+   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.message-item .item-address .item-addressicon{
+  color: #367BC9;
+}
+
+.message-item .item-address .item-addresstext{
+  color: #367BC9;
+  font-size: 25rpx;
+}
+.message-item .item-bottom .item-nums .item-nums-right .item-num .favoriteClick{
+  color: #FF6565;
+}
+
+
+.message-item .item-bottom{
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+ .message-comment{
+  
+  background:#F0F0F0;
+  margin-right:10rpx;
+  
+  margin-left:10rpx;
+
+
+}
+ .message-comment .comment-line{
+  display: flex;
+  flex-direction: row;
+  height: 50rpx;
+  padding-left: 10rpx;
+  align-items: center;
+
+}
+.message-comment .comment-line .comment-name{
+  color: #578DCF;
+  display: flex;
+  flex-direction: row;
+}
+.message-comment .comment-bottom{
+  width: 100%;
+  height: 20rpx;
+  background: white;
+}
+.replay_title{
+  color: black;
+}
+
+.kefu{
+  position:fixed;
+  right: 30rpx;
+  bottom: 200rpx;
+  padding: 10rpx;
+}
+.kefu .kefu_button{
+  border: none;
+  padding: 0;
+  height:120rpx;
+
+}
+.kefu .kefu-img{
+  flex: 1;
+  width:125rpx;
+  height:125rpx;
+
+}
+.replay-box.box-show{
+   position:fixed;
+   bottom: 0rpx;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   border-top: 2rpx solid #C8C8C8;
+   padding: 10rpx;
+   background: white;
+   
+}
+.replay-box.box-hide{
+  display: none;
+}
+.replay-box .replay-input{
+  width: 80%;
+}
+.replay-box .replay-button{
+  width: 20%;
+  font-size: 30rpx;
+  background: #FF6565;
+  color: white;
+}
+.message-item .item-bottom .iconfont.clicked{
+  color: #FF5F5F;
+}
+.message-item .item-bottom .item-nums-text.clicked{
+  color: #FF5F5F;
+}
+.shareView.show{
+  display:relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0,0.5);
+  position: fixed;
+  top: 0rpx;
+  bottom: 0rpx;
+
+}
+.shareView.hidden{
+  display: none;
+}
+.share-button-fenxiang{
+  position: absolute;
+  bottom: 80rpx;
+  width: 100%;
+  height: 80rpx;
+  border-radius: 0rpx;
+}
+.share-button-cancle{
+  position: absolute;
+  bottom: 0rpx;
+  width: 100%;
+  height: 80rpx;
+  border-radius: 0rpx;
+}
+
+
+.pet-detail-area .pet-detail-title{
+  display:flex;
+  flex-direction:row;
+  background:#F0F0F0;
+  padding-left:40rpx;
+  margin-left:-20rpx;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+
+}
+.pet-detail-title-text{
+  color: #FF6565;
+}
+
+ .pet-detail-area .pet-detail-content{
+  
+
+}
+.pet-detail-area .input-view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #F0F0F0;
+  padding: 10rpx;
+  height:80rpx;
+
+}
+.pet-detail-area .input-view .label-title{
+  color: #666666;
+}

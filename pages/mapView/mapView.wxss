@@ -1,0 +1,9 @@
+/* pages/mapView/mapView.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.mapview{
+  width: 100%;
+  height: 100%;
+}

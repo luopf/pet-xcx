@@ -1,0 +1,9 @@
+<!--pages/petDoctorSuccess/petDoctorSuccess.wxml-->
+<import src='../template/template' />
+<view class="wrap">
+
+  <view class="content">
+      <image class="content-image" src='../../static/images/success.png'></image>
+      <text class='content-text'>提交成功</text>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+<!--pages/userCenter/orderList/orderList.wxml-->
+<view class="container">
+
+  <!--顶部导航-->
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==99 ? 'on' : ''}}" data-current="99" bindtap="swichNav">全部</view>
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未使用</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已使用</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">已过期</view>
+  </view>
+
+  <!--订单列表-->
+  <view style="width:100%">
+    <block wx:key="1" wx:for="{{list}}" wx:for-item="item">
+      <block wx:if="{{item['past_due'] == 0}}">
+        <view class="coupon-list">
+          <view class="coupon">
+            <block wx:if="{{item.past_due == 0}}">
+              <image src="../../../static/images/my/coupon1.png"></image>
+            </block>
+            <block wx:else>
+                <image src="../../../static/images/my/coupon3.png"></image>
+            </block>
+            <view class="coupon-content">
+              <view class="coupon-top">
+                  <view class="top-left">{{item.name}}</view>
+                  <view class="top-right">￥ {{item['value']}}</view>
+              </view>
+              <view class="coupon-bottom">
+                  <view class="top-info">满{{item['condition_value']}}元使用</view>
+                  <view class="bottom-info">有效期{{item['valid_start']}}~{{item['valid_end']}} </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:elif="{{item['past_due'] == 1}}">
+        <view class="coupon-list">
+          <view class="coupon cf">
+            <image src="../../../static/images/my/coupon3.png"></image>
+            <view class="coupon-content">
+                
+              <view class="coupon-top cf">
+                  <view class="top-left">现金抵扣券</view>
+                  <view class="top-right">￥ {{item['value']}}</view>
+              </view>
+              <view class="coupon-bottom cf">
+                  <view class="top-info">满{{item['condition_value']}}元使用</view>
+                  <view class="bottom-info">有效期 {{item['valid_start']}}~{{item['valid_end']}} </view>
+              </view>
+            </view>
+          </view>
+        </view>
+       </block>
+    </block>
+  </view>
+
+</view>
+<view class="btnText" bindtap="goCoupon">去领券中心</view>

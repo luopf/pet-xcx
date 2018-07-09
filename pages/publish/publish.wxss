@@ -1,0 +1,254 @@
+
+@import "/static/icon.wxss";
+@import "/pages/template/template.wxss";
+.page{
+  padding-bottom: 75rpx;
+}
+.sapce-line{
+  width: 100%;
+  height: 10rpx;
+  background: #F0F0F0;
+}
+.wrap{
+  padding: 20rpx;
+  padding-bottom: 0;
+}
+
+.wrap .content{
+  width: 100%;
+  height: 250rpx;
+  padding-left:20rpx;
+
+}
+ .wrap .content-textarea{
+   width: 100%;
+   height: 250rpx;
+ }
+.wrap .img-content{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.wrap .img-content  .imgadd{
+  width:170rpx;
+  height:170rpx;
+  margin-left:20rpx;  
+}
+
+.wrap .img-content .img-content-right{
+  width: 70%;
+}
+.wrap .img-content .temp-img-area{
+  position: relative;
+}
+.wrap .img-content .temp_img{
+  width:170rpx;
+  height:170rpx;
+  margin-left:20rpx;
+
+}
+.wrap .img-content .delete-img{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top:-32rpx;
+  right:-32rpx;
+  padding:20rpx;
+
+  
+
+}
+.wrap .user-notic{
+  margin-top: 30rpx;
+  font-size: 20rpx;
+  color: #C3C3C3;
+  padding-left:20rpx;
+
+}
+
+
+.label-area{
+  margin-top:20rpx;
+  
+  
+}
+.label-area .label-title{
+  display:flex;
+  flex-direction:row;
+  background:#F0F0F0;
+  width:750rpx;
+  padding-left:40rpx;
+  margin-left:-20rpx;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+
+}
+.label-area .label-title .label-title-text{
+  color: #FF6565;
+}
+.label-area .label-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding:20rpx;
+  margin-left:-20rpx;
+
+}
+.label-area .label-content .label-item{
+  border: 1rpx solid #CCCCCC;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  padding: 5rpx;
+  color: #666666;
+
+}
+.label-area .label-content .label-item.select{
+  border: 1rpx solid #FF6565;
+  color: #FF6565;
+}
+.content-area{
+  margin-top: 20rpx;
+  border-bottom: 1rpx solid #CCCCCC;
+  margin-bottom: 10rpx;
+}
+
+ .content-area .img-content{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.content-area .img-content .img-content-left{
+  width: 200rpx;
+}
+.content-area .img-content .img-content-left .imgadd{
+  width: 150rpx;
+  height: 150rpx;
+  
+}
+
+.content-area .img-content .img-content-right{
+  width: 70%;
+}
+.content-area .img-content .temp_img{
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 20rpx;
+}
+.content-area .user-notic{
+  margin-top: 30rpx;
+  font-size: 20rpx;
+  color: #C3C3C3;
+  padding-bottom: 10rpx;
+}
+.wrap .pet-detail-area{
+
+}
+.wrap .pet-detail-area .pet-detail-title{
+  display:flex;
+  flex-direction:row;
+  background:#F0F0F0;
+  width:750rpx;
+  padding-left:40rpx;
+  margin-left:-20rpx;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+
+}
+.pet-detail-title-text{
+  color: #FF6565;
+}
+
+ .pet-detail-area .pet-detail-content{
+  padding-left:10rpx;
+
+}
+.pet-detail-area .input-view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #F0F0F0;
+  padding: 10rpx;
+  height:80rpx;
+
+}
+.pet-detail-area .input-view .label-title{
+  color: #666666;
+  width: 150rpx;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+
+}
+.inputplaceholder{
+  color: #F0F0F0;
+}
+.contact-area{
+}
+.contact-area .contact-area-title{
+  display:flex;
+  flex-direction:row;
+  background:#F0F0F0;
+  width:750rpx;
+  padding-left:40rpx;
+  margin-left:-20rpx;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+
+}
+.contact-area .contact-area-title-text{
+  color: #FF6565;
+}
+.contact-area .contact-area-content{
+  padding-left: 10rpx;
+}
+
+.contact-area .contact-area-content .label-title{
+  width: 150rpx;
+}
+.contact-area .input-view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #F0F0F0;
+  padding: 10rpx;
+  height:80rpx;
+
+}
+.contact-area .label-title{
+  color: #666666;
+  width: 150rpx;
+}
+.submit-publish{
+  width: 100%;
+  height: 40rpx;
+  background: #FF6600;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50rpx;
+  color: white;
+  font-size: 30rpx;
+  margin-bottom: 100rpx;
+  border-radius:20rpx;
+
+}
+.contact-area .user-address{
+  border:0rpx;
+  height:75rpx;
+}
+.user-address .iconfont{
+  color: #3077C8;
+}
+.user-address .address-text{
+  color: #3077C8;
+  margin-left: 10rpx;
+}
+.publish-view{
+  padding: 30rpx;
+  background: #F0F0F0;
+}

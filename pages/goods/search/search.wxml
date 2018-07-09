@@ -1,0 +1,32 @@
+<!--pages/goods/labelGoodsList/labelGoodsList.wxml-->
+<!--公共header模块-->
+<view class="header">
+    <view class="main" >
+        <input class="input" bindinput="inputKeyWord"  placeholder="请输入您要搜索的商品" type="search" placeholder-class="place-holder" />
+        <view class="search">
+            <image class="serach-button" src="../../../static/images/my/2.png" bindtap="searchGoodsTap" data-keyword="{{keyWord}}"></image>
+        </view>
+    </view>
+</view>
+<view class="container">
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+    <view class="recommend-goods-diplay-area">
+      <view class="recommend-goods-list">
+        <block wx:key="1" wx:for="{{list}}" wx:for-item="item">
+          <view class="goods-item" data-id="{{item.id}}" bindtap="goodsDetail">
+            <image class="img" src="{{base_url}}{{item.img_url}}"></image>
+            <view class="goods-name">{{item.name}}</view>
+            <view class="goods-ori-price">原价：￥{{item.ori_price}}</view>
+            <view class="goods-price">现价：￥{{item.price}}</view>
+            <view class="buy-now" bindtap="buyNow">下单</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      拼命加载中..
+    </loading>
+  </view>
+</view>

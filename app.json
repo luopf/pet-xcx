@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/publish/publish",
+    "pages/index/index",
+    "pages/userCenter/userCenter/userCenter",   
+    "pages/goods/goodsDetail/goodsDetail",
+    "pages/history/history",
+    "pages/cateList/cateList",
+    "pages/petArticle/petArticle",
+    "pages/petArticleHome/petArticleHome",
+    "pages/petArticleList/petArticleList",
+    "pages/publishSuccess/publishSuccess",
+    "pages/petDoctor/petDoctor",
+    "pages/petDoctorSuccess/petDoctorSuccess",
+   
+    "pages/cate/cate",
+    "pages/favorite/favorite",
+    "pages/messageList/messageList",
+    "pages/message/message",
+    "pages/mapView/mapView"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "有宠日志",
+    "navigationBarTextStyle": "black"
+  },
+
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

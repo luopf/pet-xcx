@@ -1,0 +1,43 @@
+<!--pages/goods/goodsSearch/goodsSearch.wxml-->
+<view class="wrap">
+  <!--搜索框-->
+  <view class="search-wrap">
+    <view class="search-left">
+      <image src="../../../static/images/my/2.png"></image>
+      <input class="search-text"  placeholder="请输入关键字" placeholder-class="place-holder" bindchange="bindChange" bindconfirm="searchGoods" value="{{keyword}}"/>
+    </view>
+    <view class="search-right" bindtap = 'search'>搜索</view>
+  </view>
+
+  <!--商品-->
+  <scroll-view class="goods-list" bindscrolltolower="lower" lower-threshold="0" style="height: {{cateH}};" scroll-y="true">
+
+    <block wx:key="1" wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="goods">
+
+      <view class="goods-item">
+        <image class="goods-img" src="{{base_url}}{{goods.thumb}}"></image>
+        <view class="goods-name">{{goods.name}}</view>
+
+         <view class="add-box">
+          <image wx:if="{{goods.goods_count}}" class="reduce" data-gid="{{goods.id}}" src="../../../static/images/my/jian.png" bindtap="reduce" data-num="{{index}}"></image>
+          <view wx:if="{{goods.goods_count}}" class="goods-count" data-num="{{index}}">{{goods.goods_count}}</view>
+          <image class="add" data-gid="{{goods.id}}" src="../../../static/images/my/jia.png" bindtap="add" data-num="{{index}}"></image>
+        </view>
+
+        <view class="price-box">
+          <text class="now-price">￥{{goods.price}}</text>
+          <text class="pre-price">￥{{goods.ori_price}}</text>
+        </view>
+       
+      </view>
+      </block>
+      <view class="tip-text" hidden="{{hidden}}" >{{tip}}</view>
+    
+    </scroll-view>
+
+    <!--购物车按钮-->
+    <view class="cart-box" bindtap="cart">
+      <image src="../../../static/images/my/cart.png"></image>
+      <text class="cart-num">{{count}}</text>
+    </view>
+</view>

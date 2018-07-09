@@ -1,0 +1,44 @@
+<!--pages/userCenter/addressList/addressList.wxml-->
+<view class='container'>
+    <view class="separator"></view>
+    <block wx:if="{{list.length}}">
+        <radio-group bindchange="changeRadio">
+            <block wx:key="1" wx:for="{{list}}" wx:for-item="address">
+                <view class="address">
+                    <view class="address-content">
+                        <view class="address-name">
+                            <text>{{address.call_name}}</text>
+                            <text>{{address.phone}}</text>
+                        </view>
+                        <view class="address-detail">
+                            <text>{{address.wechat_number}}</text>
+                        </view>
+                        <view class="address-detail">
+                            <text>{{address.address.city}}{{address.address.detail}}</text>
+                        </view>
+                    </view>
+                    <view class="address-operate">
+                        <view class="checkbox">
+                            <!--<radio color="red" value="{{address.id}}" checked="{{address.is_default == 1}}"/>-->
+                            <image class="radio-image" src="../../../static/images/my/checking.png" data-id="{{address.id}}" wx:if="{{address.is_default == 0}}" bindtap="changeRadio"></image>
+                            <image class="radio-image" src="../../../static/images/my/checked.png" data-id="{{address.id}}" wx:else bindtap="changeRadio"></image>
+                            <view>设为默认地址</view>
+                        </view>
+                        <view class="edit-address" data-id="{{address.id}}" bindtap="eidtAddress">编辑</view>
+                        <view class="delete-address" data-id="{{address.id}}" bindtap="deleteAddress">删除</view>
+                        <view>
+                        </view>
+                        <view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </radio-group>
+    </block>
+    <block wx:else>
+        暂无地址！
+    </block>
+    <view class="add-address" bindtap="addAddress">
+        新增收货地址
+    </view>
+</view>

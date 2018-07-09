@@ -1,0 +1,60 @@
+
+<import src='../template/template' />
+<view class="wrap">
+  <view class='space-line'></view>
+  <view class='wrap-header'>
+
+  <view class='wrap-header-content'>
+    <view wx:if="{{hederindex == 1}}" class='wrap-header-publish wrap-view wrap-left selected' data-index="1" catchtap='exchange_headerindex'>
+      <text>发布成功</text>
+    </view>
+    <view wx:else class='wrap-header-publish wrap-view wrap-left' data-index="1" catchtap='exchange_headerindex'>
+      <text>发布成功</text>
+    </view>
+    <view wx:if="{{hederindex == 2}}" class='wrap-header-check wrap-view wrap-middle selected' data-index="2" catchtap='exchange_headerindex'>
+      <text>审核通过</text>
+    </view>
+    <view wx:else class='wrap-header-check wrap-view wrap-middle' data-index="2" catchtap='exchange_headerindex'>
+      <text>审核通过</text>
+    </view>
+    <view wx:if="{{hederindex == 3}}" class='wrap-header-check wrap-view wrap-right selected' data-index="3" catchtap='exchange_headerindex'>
+      <text>留言互动</text>
+    </view>
+     <view wx:else class='wrap-header-check wrap-view wrap-right' data-index="3" catchtap='exchange_headerindex'>
+      <text>留言互动</text>
+    </view>
+  </view>
+    
+  </view>
+  <view class='space-line'></view>
+  <view class='content'>
+  <block wx:for="{{messageList}}" >
+    <view class='content-item'>
+  
+      <view class='content-top'>
+
+        <view class='content-top-left'>
+          <text>消息通知</text>
+        </view>
+
+        <view class='content-top-right'>
+          <text>{{item.time_desc}}</text>
+        </view>
+
+      </view>
+
+      <view wx:if="{{hederindex == 1}}" class='content-bottom'>
+        <text>尊敬的用户，您好！你在{{item.time_desc}}所发布的信息已成功，祝你生活愉快~</text>
+      </view>
+       <view wx:if="{{hederindex == 2}}" class='content-bottom'>
+        <text>尊敬的用户，您好！你在{{item.time_desc}}所发布的信息已通过审核，即将发布,祝你生活愉快~</text>
+      </view>
+       <view wx:if="{{hederindex == 3}}" class='content-bottom'>
+        <text>尊敬的用户，您好！你在{{item.time_desc}}所发布的信息有新的留言，请及时查看,祝你生活愉快~</text>
+      </view>
+    </view>
+  </block>
+  </view>
+  
+</view>
+<template is="bottom-nav" data="{{...nav_active}}"/>

@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<import src='../template/template' />
+<view class="container">
+
+  <view class="item">
+      <view class="input-info">
+         <input  placeholder-class="phcolor" maxlength="11" placeholder="手机号" type="number" bindinput="getPhone"/>
+      </view>
+      <viem class="right-info">
+          <text class="border-left">{{phoneWarning}}</text>
+      </viem>
+  </view>
+  <view class='register-wrap' hidden>
+	<input type='text' placeholder='请输入校验码' placeholder-class="phcolor"></input>
+	<image mode='widthFix' class='img' src='../../static/images/my/register.jpg'></image>
+  </view>
+
+   <view class="item">
+      <view class="input-info">
+          <input placeholder-class="phcolor" placeholder="手机验证码" type="text" bindinput="getCode"/>
+      </view>
+       <view class="right-info">
+        <text bindtap="sendPcode" class="border-left">{{getNum}}</text>
+      </view>
+  </view>
+
+    <button class="login-button" size="defaultSize" bindtap="register"> 登录 </button>
+</view>
+<template is='bottom-nav' data='{{...nav-list}}' />

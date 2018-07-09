@@ -1,0 +1,182 @@
+<import src = "../../../wxParse/wxParse.wxml"/>
+
+<view class='page' bindtap='hidden_replaybox'>
+<view class="wrap-header"></view>
+<view class="wrap" >
+  
+   <view class="message-item"  data-mid="{{messageInfo.id}}">
+    <view class='item-top'>
+       <view class="item-top-left">
+          <image class="item-image" src="{{messageInfo.head_img_url}}"></image>
+      </view>
+      <view class='item-top-right'>
+        <view class="item-right-head">
+              <text class="item-username">{{messageInfo.nick_name}}</text>
+              <view class="item-button">
+                <image class='contact-img' src='../../../static/images/contact.png' bindtap="call_user" data-phone="{{messageInfo.phone}}"></image>
+              </view>
+            </view>
+            <view class="item-right-content">
+            {{messageInfo.text_content}}
+            </view>
+      </view>
+
+    </view>
+
+
+         
+          <view class="item-right">
+            
+            <view class="item-imagelist">
+            	 <block wx:key="1" wx:for="{{messageInfo.img_list}}" wx:for-item="image"> 
+              <image  class="item-imagelist-img" mode='widthFix' src="{{img_url}}{{image.image}}" data-image="{{img_url}}{{image.thumb}}" bindtap="previewImage"></image>
+        
+            	 </block> 
+            </view>
+            <view class="item-pet">
+               <!-- 宠物基本信息区域 -->
+              <view class="pet-detail-area">
+                <view class="pet-detail-title">
+                  <text class="pet-detail-title-text">宠物基本信息:</text>
+                </view>
+                <view class="pet-detail-content">
+                  <view class="pet-name input-view">
+                    <label class="label-title">宠物昵称：</label>
+                    <text>{{messageInfo.pet_name}}</text>
+                  </view>
+                  <view class="pet-cate input-view">
+                    <label class="label-title">宠物品种：</label>
+                    <text>{{messageInfo.pet_cate}}</text>
+                  </view>
+                  <view class="pet-age input-view">
+                    <label class="label-title">宠物年龄：</label>
+                    <text>{{messageInfo.pet_age}}</text>
+                  </view>
+                  <view class="pet-sex input-view">
+                    <label class="label-title">宠物性别：</label>
+                    <text>{{messageInfo.pet_age}}</text>
+                  </view>
+                  <view class="pet-sex input-view">
+                    <label class="label-title">联系电话：</label>
+                    <text>{{messageInfo.phone}}</text>
+                  </view>
+                  <view class="pet-sex input-view">
+                    <label class="label-title">微信号码：</label>
+                    <text>{{messageInfo.wx_number}}</text>
+                  </view>
+
+                </view>
+              </view>
+
+             
+
+              
+
+             
+
+
+
+              
+                
+               
+           
+
+
+            </view>
+
+            <view class="item-address" catchtap='enter_mapview' data-latitude="{{messageInfo.latitude}}" data-longitude="{{messageInfo.longitude}}">
+              
+              <text class="item-addresstext">{{messageInfo.address_text}}</text>
+            </view>
+            <view class='item-time' catchtap='hidden_input'>
+                <text class="item-timetext">{{messageInfo.time_desc}}</text>
+            </view>
+            <view class="item-bottom" catchtap='hidden_input'>
+              
+             
+              <view class="item-nums">
+                 <view class="item-nums-left">
+                  <view class="item-num">
+                      <i class="icon iconfont icon-chakan1"></i>
+                      <text class="item-nums-text">浏览{{messageInfo.check_num}}次</text>
+                  </view>
+                </view>
+
+                <view class="item-nums-right">
+
+                  <view class="item-num" catchtap="say" data-name="{{messageInfo.nick_name}}">
+                    <i class="icon iconfont icon-pinglunguanli"  ></i>
+                    <text class="item-nums-text">{{messageInfo.message_num}}</text>
+                  </view>
+
+                  <view class="item-num" catchtap="like_click" data-userisdianzan="{{userisdianzan}}">
+                    <i wx:if="{{userisdianzan == false}}" class="icon iconfont icon-dianzan-copy-copy"></i>
+                    <text wx:if="{{userisdianzan == false}}" class="item-nums-text" >{{messageInfo.like_num}}</text>
+                    <i wx:if="{{userisdianzan == true}}" class="icon iconfont icon-dianzan-copy-copy clicked"></i>
+                    <text wx:if="{{userisdianzan == true}}" class="item-nums-text clicked">{{messageInfo.like_num}}   </text>
+                  </view>  
+
+                  <view class="item-num" catchtap="fenxiang"> 
+                    <i class="icon iconfont icon-fenxiang1" catchtap="fenxiang"></i>
+                    <text class="item-nums-text"  >{{messageInfo.report_num}}</text>
+                  </view>
+                  <view class="item-num favorite" catchtap="favorite" data-favo="{{favoriteisclick}}"> 
+                    <i wx:if="{{favoriteisclick == true}}" class="icon iconfont icon-fav-1 favoriteClick" data-favo="{{favoriteisclick}}" catchtap="favorite"></i>
+                    <i wx:if="{{favoriteisclick == false}}" class="icon iconfont icon-fav-1" data-favo="{{favoriteisclick}}" catchtap="favorite"></i>
+                  </view>
+                    
+
+                </view>
+
+              </view>
+
+            </view>
+
+           
+          </view>
+        
+    </view>
+</view>
+
+<!-- 评论 -->
+ <view class="message-comment">
+    <view class="comment-content">
+
+    <block wx:key="1" wx:for="{{commentList}}" wx:for-item="comment">
+
+      <view class="comment-line" wx:if="{{comment.is_reply == 0}}" data-name="{{comment.nick_name}}" data-cid="{{comment.id}}" catchtap="replay_user">
+        <view class="comment-name">{{comment.nick_name}}：</view>
+        <view class="comment-detail">{{comment.content}}</view>
+      </view>
+
+      <view class="comment-line" wx:else data-name="{{comment.nick_name}}" data-cid="{{comment.id}}"   catchtap="replay_user">
+        <view class="comment-name">
+       {{comment.replay_user.nick_name}}
+        <view class="replay_title">回复</view>
+         {{comment.nick_name}}:
+        </view>
+        <view class="comment-detail">{{comment.reply_content}}</view>
+      </view>
+    </block>
+    </view>
+    <view class='comment-bottom'></view>
+  </view>
+<!-- 客服 -->
+
+ <view class="kefu" >
+   <button class="kefu_button" open-type='contact' plain="{{true}}"><image class="kefu-img" src="../../../static/images/kefu.png"></image></button>
+  </view>
+
+
+<view class="replay-box {{replaybox_status}}">
+     <input class="replay-input" placeholder="{{input_placeholder}}"   bindinput="replayContentInput"  />
+     <button class="replay-button" bindtap='replayUser' data-mid="{{messageInfo.id}}" data-messnum="{{messageInfo.mess_num}}">发送</button>
+</view>
+</view>
+
+<view wx:if="{{shareViewisShow == true}}" class='shareView show'>
+  <button class="share-button-fenxiang"  open-type="share" catchtap="share_message">分享</button>
+  <button class="share-button-cancle" catchtap="cancle_share">取消</button>
+</view>
+
+
