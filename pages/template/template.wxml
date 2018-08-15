@@ -52,6 +52,9 @@
             <navigator class="item {{message}}"  open-type='reLaunch' url='/pages/message/message'> 
                  <text class="iconfont icon-xiaoxi2"></text>
                 <view class='nav-title'>消息</view>
+                <block wx:if="{{newsCount != 0 && newsCount != '0' && newsCount != undefined}}">
+                <view class='message-num'><text>{{newsCount}}</text></view>
+                </block>
             </navigator>
         
             <navigator class="item {{center}}" open-type='reLaunch' url='/pages/userCenter/userCenter/userCenter'> 

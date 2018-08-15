@@ -22,7 +22,8 @@ Page({
       },  
       inputContent:'', 
       noticViewShow:false,
-      isfirstlogin:true,  
+      isfirstlogin:true, 
+      userInfo:'', 
   },
   //定位
   getLocation: function () {
@@ -74,18 +75,22 @@ Page({
 
     })
   }, 
+
+  
   //请求分页数据
   pagingData: function (city, pageIndex, pageSize,content=null){
     var that = this;
+    let data = {
+      'city': city,
+      'pageIndex': pageIndex,
+      'pageSize': pageSize,
+      'content': content,
+      'status': 1,
+    };
+   
     wx.request({
       url: base_url + 'index.php/front/message/paggingMessage', 
-      data: {
-        'city': city,
-        'pageIndex': pageIndex,
-        'pageSize': pageSize,
-        'content': content,
-        'status':1,
-        },
+      data:data,
         method:"POST",
       success: function (res) {
         
@@ -96,6 +101,7 @@ Page({
         for (var i = 0; i < dataList.length; i++) {
           messageList.push(dataList[i]);
         }
+       
         that.setData({messageList: messageList});
       }
     })
@@ -134,9 +140,14 @@ Page({
       url: '../cateList/cateList?cid=' + cid,
     })
   },
+  // 获取
+
 
   onShow: function(){
     var that = this;
+    let userInfo = that.data.userInfo;
+    let user_id = userInfo.id;
+    app.getUserNoReadNews(user_id, that);
     //设置底部导航信息：
     let nav_active = {
       home: 'active',
@@ -151,7 +162,7 @@ Page({
     that.setData({
       messageList : []
     });
-    that.pagingData(that.data.currentCity, 1, pageSize);
+    that.pagingData('', 1, pageSize);
 
     
 
@@ -170,9 +181,10 @@ Page({
     
     var userInfo = wx.getStorageSync('userInfo');
     
-    if (userInfo.id){
+    if (userInfo.id && userInfo.id != 0 && userInfo.id != 1){
       that.setData({
-        noticViewShow : false
+        noticViewShow : false,
+        userInfo: userInfo
       });
     } else{
       that.setData({
@@ -313,7 +325,6 @@ Page({
             }, // 设置请求的 header
             success: function (res) {
               let data = res.data;
-              console.log(data);
               if(data.id){
                 wx.setStorage({
                   key: 'userInfo',
@@ -416,7 +427,7 @@ Page({
 	onShareAppMessage: function (res) {
 		if (res.from === 'button') {
 			// 来自页面内转发按钮
-			console.log(res.target)
+			
 		}
 		return {
 			title: elasticInfo.share.title,

@@ -496,7 +496,7 @@ border-radius:20rpx;
 .kefu{
   position:fixed;
   right:2rpx;
-  bottom:100rpx;
+  bottom:200rpx;
   padding:10rpx;
 
  

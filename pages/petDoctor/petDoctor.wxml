@@ -19,9 +19,10 @@
       </view>
       <view class="input-right">
         <picker class="picker" mode="date" value="{{petbitthday}}" start="2015-09-01" end="2027-09-01" bindchange="bindBirthdayDateChange">
-            {{petbitthday}}
+        <view class='pick-view'>{{petbitthday}}</view>
+        <i class="iconfont input-iconfont icon-riqi"></i>  
         </picker>
-         <i class="iconfont icon-riqi"></i>
+        
       </view>
     </view>
     <!-- 宠物性别 -->
@@ -33,14 +34,17 @@
       <view class="input-right">
 
         <picker class="picker" value="{{sexIndex}}" range="{{sexArray}}" bindchange="bindSexChange" >
-           <block wx:if="{{sexIndex ==-1}}">
+        <view class='pick-view'>
+           <block  wx:if="{{sexIndex ==-1}}">
                                     公，母
                               </block>
                               <block wx:else>
                                     {{sexArray[sexIndex]}}
                                </block>
+          </view> 
+          <i class="iconfont input-iconfont icon-sanjiaoxing-down"></i>
         </picker>
-         <i class="iconfont icon-sanjiaoxing-down"></i>
+         
       </view>
     </view>
      <!-- 是否绝育 -->
@@ -52,14 +56,17 @@
       <view class="input-right">
 
         <picker class="picker" value="{{bearIndex}}" range="{{bearArray}}" bindchange="bindBearChange" >
+        <view class='pick-view'>
            <block wx:if="{{bearIndex ==-1}}">
                                     是 ，否
                               </block>
                               <block wx:else>
                                     {{bearArray[bearIndex]}}
                                </block>
+          </view>  
+          <i class="iconfont input-iconfont icon-sanjiaoxing-down"></i>                     
         </picker>
-         <i class="iconfont icon-sanjiaoxing-down"></i>
+         
       </view>
     </view>
 <!-- 上次免疫时间 -->
@@ -70,23 +77,29 @@
       </view>
       <view class="input-right">
         <picker class="picker-small" mode="date" value="{{date}}" start="2015-09-01" end="2027-09-01" bindchange="bindLastImmuneChange">
+         <view class='pick-view'>
             {{petlastimmune}}
+         </view>
+        <i class="iconfont input-iconfont icon-riqi"></i>
         </picker>
-         <i class="iconfont icon-riqi"></i>
+        
       </view>
     </view>
 
     <!-- 上次驱虫时间 -->
     <view class="petlastrepellantdate inputline">
       <view class="title-left">
-        <text class="left-title">上次免疫时间</text>
+        <text class="left-title">上次驱虫时间</text>
         <view class="line"></view>
       </view>
       <view class="input-right">
         <picker class="picker-small" mode="date" value="{{date}}" start="2015-09-01" end="2027-09-01" bindchange="bindLastRepellantChange">
+        <view class='pick-view'>
             {{petlastrepellant}}
+        </view> 
+        <i class="iconfont input-iconfont icon-riqi"></i>
         </picker>
-         <i class="iconfont icon-riqi"></i>
+         
       </view>
     </view>
 
@@ -119,11 +132,11 @@
     </view>
     <view class="radio-content">
        <block wx:for="{{checkboxArray}}" wx:for-item="box" wx:for-index="index">
-        <view class="radio-item" wx:if="{{checkboxindex==index}}" bindtap="choose" data-index="{{index}}">
+        <view class="radio-item" wx:if="{{checkboxindex===index}}" bindtap="choose" data-index="{{index}}">
            <i class="iconfont icon-xuanzhong"></i>
           <view class="box_choose box">{{box.value}}</view>
         </view>
-        <view class="radio-item" wx:else="{{choose!=index}}" bindtap="choose" data-index="{{index}}">
+        <view class="radio-item" wx:else="{{choose!==index}}" bindtap="choose" data-index="{{index}}">
            <i class="iconfont icon-weixuan1"></i>
           <view class="box">{{box.value}}</view>
         </view>
@@ -135,7 +148,7 @@
       <text class="title">病情描述:</text>
     </view>
     <view class="content">
-      <textarea bindblur="bindContentTextAreaBlur"  auto-height placeholder="请输入内容~" placeholder-class="text-area-placeholde"/>
+      <textarea bindblur="bindContentTextAreaBlur"   placeholder="请输入内容~" placeholder-class="text-area-placeholde"/>
     </view>
    </view>
    <view class="imgarea">

@@ -1,30 +1,41 @@
+var CONFIG = require('../../utils/config.js');
+var base_url = CONFIG.API_URL.BASE_URL;
 var app = getApp()
 Page({
   data: {
     motto: 'Hello WeApp',
-    userInfo: {}
+    userInfo: {},
+    base_url: base_url,
+    token:'',
+
   },
-  onButtonTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-  	//登录
-    wx.login({
-      success: function () {
-        wx.getUserInfo({
-          success: function (res) {
-            that.setData({userInfo: res.userInfo})
-            that.update()
-          }
-        })
+  formSubmit:function(e){
+    let fromid = e.detail.formId;
+  
+    wx.request({
+      url: base_url +'index.php/admin/Test/sendTempleMess',
+      data: {form_id: fromid},
+      header: {
+        'Content-Type': 'application/json'
       },
-      fail: function (res) {
-        console.log(res)
-      }
-    });
-  }
+      success: function (res) {
+
+        console.log(res,'成功');
+
+      },
+      fail: function (error) {
+
+        console.log(error,'失败');
+      },
+
+    })
+
+  },
+  onLoad:function(){
+
+  },
+  onShow:function(){},
+  
+  
+  
 })

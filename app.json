@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/publish/publish",
+    "pages/main/main",
     "pages/index/index",
     "pages/userCenter/userCenter/userCenter",   
     "pages/goods/goodsDetail/goodsDetail",
@@ -10,20 +10,21 @@
     "pages/petArticleHome/petArticleHome",
     "pages/petArticleList/petArticleList",
     "pages/publishSuccess/publishSuccess",
-    "pages/petDoctor/petDoctor",
+    "pages/publish/publish",
     "pages/petDoctorSuccess/petDoctorSuccess",
-   
+    "pages/petDoctor/petDoctor",
     "pages/cate/cate",
     "pages/favorite/favorite",
     "pages/messageList/messageList",
     "pages/message/message",
+    
     "pages/mapView/mapView"
    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "有宠日志",
+    "navigationBarTitleText": "宠物之家领养中心",
     "navigationBarTextStyle": "black"
   },
 

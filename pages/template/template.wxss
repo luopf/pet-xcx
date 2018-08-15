@@ -302,3 +302,21 @@ display: inline-block; }
   height: 0;
   margin: 0 20rpx;
 }
+.nav-list .item{
+  position: relative;
+}
+.nav-list .message-num{
+  position:absolute;
+width:40rpx;
+height:40rpx;
+border-radius:20rpx;
+background:red;
+top:-6rpx;
+right:2rpx;
+display:flex;
+flex-direction:row;
+align-items:center;
+justify-content:center;
+color:white;
+
+}

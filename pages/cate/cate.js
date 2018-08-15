@@ -21,6 +21,7 @@ Page({
       lodingBall: 1
     },
     inputContent: '',
+    userInfo:'',
   },
   //定位
   getLocation: function () {
@@ -137,6 +138,9 @@ Page({
 
   onShow: function () {
     var that = this;
+    let userInfo = that.data.userInfo;
+    let user_id = userInfo.id;
+    app.getUserNoReadNews(user_id, that);
     //设置底部导航信息：
     let nav_active = {
       cate: 'active',
@@ -161,6 +165,15 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
+    var userInfo = wx.getStorageSync('userInfo');
+    if (userInfo.id == 0 || userInfo.id == null || userInfo.id == undefined) {
+      wx.redirectTo({
+        url: '../pages/index/index'
+      })
+    }
+    that.setData({
+      userInfo: userInfo
+    });    
     //获取幻灯片信息
     wx.request({
       url: base_url + 'index.php/front/slide/getAllSlide',
@@ -176,7 +189,9 @@ Page({
         })
       }
     }),
-      // Fun.CurlPaging(that,base_url+'index.php?c=wxApp&a=pagingLabel', cData, false);
+      
+
+
       //获取所有分类
       wx.request({
       url: base_url + 'index.php/front/label/findAllLables',

@@ -33,7 +33,7 @@ var pagingComment = function ( options, that ) {
     method: 'POST',
     success: function ( res ) {
       var data = res.data.data;
-      
+      console.log(data,"wewewewee");
       that.setData({
         commentList: data
       })
@@ -155,7 +155,7 @@ Page({
     let messageInfo = that.data.messageInfo;
     let mid = messageInfo['id'];
     let isclick = e.currentTarget.dataset.favo;
-    console.log(e);
+   
     if (isclick){// 已经收藏了。点击取消收藏
 
       // 发送增加收藏请求
@@ -328,11 +328,6 @@ Page({
     
     var that = this;
     var userInfo = that.data.userInfo;
-    //增加评论数
-    var messageInfo = that.data.messageInfo;
-    messageInfo['message_num'] += 1;
-    
-
     var mid = e.currentTarget.dataset.mid;//发布的消息id
     var mess_num = e.currentTarget.dataset.messnum;//发布消息的编号
     var content = that.data.inputReplyContent;//评论的内容
@@ -340,7 +335,7 @@ Page({
     var nick_name = userInfo['nick_name'];// 评论用户的昵称
     var is_reply = that.data.is_reply;// 是否回复
     var cid = that.data.cid;// 评论id
-
+    var messageInfo = that.data.messageInfo;
     
    
      var commentData = {
@@ -361,7 +356,19 @@ Page({
         var data = res.data;
         if (data.errorCode == 0){
           that.setData({ commentList: [], replaybox_status: 'box-hide', inputReplyContent:''});
+          //增加评论数
+          messageInfo['message_num'] += 1;
+          that.setData({
+            messageInfo: messageInfo
+          });
           pagingComment({mid:that.data.mid}, that);
+        } else if (data.errorCode == 2){//用户被拉黑
+          wx.showToast({
+            title: '您已被管理员拉黑，不能评论。',
+            icon: 'none',
+            duration: 1000,
+            mask: true
+          })
         }
       
 
@@ -370,9 +377,7 @@ Page({
       }
     });
 
-    that.setData({
-      messageInfo: messageInfo
-    });
+   
   },
   /**
    * 生命周期函数--监听页面加载

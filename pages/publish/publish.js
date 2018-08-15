@@ -71,12 +71,14 @@ Page({
   getLocation: function () {
     var that = this;
     wx.getLocation({
-      type: 'wgs84',   //<span class="comment" style="margin:0px;padding:0px;border:none;">默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标</span><span style="margin:0px;padding:0px;border:none;"> </span>  
+      type: 'gcj02',   //<span class="comment" style="margin:0px;padding:0px;border:none;">默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标</span><span style="margin:0px;padding:0px;border:none;"> </span>  
       success: function (res) {
         // success    
       
         var longitude = res.longitude;
         var latitude = res.latitude;
+       
+      
         that.loadCity(longitude, latitude);
         that.setData({
           longitude: longitude,
@@ -88,23 +90,24 @@ Page({
   //经纬度转换城市
   loadCity: function (longitude, latitude) {
     var that = this;
+
     wx.request({
-      url: 'https://api.map.baidu.com/geocoder/v2/?ak=Ww4RAMZzxP83c38UdkEuH9gwmdik6b7d&location=' + latitude + ',' + longitude + '&output=json',
+      url: 'https://restapi.amap.com/v3/geocode/regeo?key=a48915f434617dbf430c9b2d68aa55b7&location=' + longitude + ',' + latitude+'&radius=50',
       data: {},
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         // success    
-        
-        var detail = res.data.result.addressComponent;
-        var city = res.data.result.addressComponent.city;
-        var address_text = detail.city + ' · ' + detail.district + detail.street + detail.street_number;
+       
+        var detail = res.data.regeocode.formatted_address;
+        var city = res.data.regeocode.addressComponent.city;
+        var address_text = detail;
         that.setData({ currentCity: city, address_text: address_text});
 
       },
       fail: function () {
-        console.log(error);
+        
         that.setData({ currentCity: "获取定位失败" });
       },
 
@@ -212,7 +215,7 @@ Page({
       
       },
       fail: function (err) {
-        console.error(err);
+       
       }
     })
     
@@ -247,6 +250,11 @@ Page({
   publish_message:function(){
     var that = this;
     var userInfo = that.data.userInfo;
+    if (userInfo.id == 0 || userInfo.id == null || userInfo.id == undefined){
+      wx.redirectTo({
+        url: '../pages/index/index'
+      })
+    }
     var label_id = that.data.cateSelectIndex;// 标签id
     if (label_id == '' || label_id == null || label_id == undefined) {
       wx.showToast({
@@ -363,6 +371,14 @@ Page({
           wx.navigateTo({
             url: '../publishSuccess/publishSuccess'
           })
+        } else if (res.data.errorCode == 2){// 用户被拉黑
+          wx.showToast({
+            title: '您已被管理员拉黑，不能发布任何信息。',
+            icon: 'none',
+            duration: 1000,
+            mask: true
+          })
+
         }
       }
     })
@@ -380,6 +396,9 @@ Page({
       circle: '',
       center: ''
     };
+    let userInfo = that.data.userInfo;
+    let user_id = userInfo.id;
+    app.getUserNoReadNews(user_id, that);
     that.setData({ nav_active: nav_active });
 
    
@@ -391,10 +410,17 @@ Page({
   onLoad: function (options) {
     var that = this;
     var userInfo = wx.getStorageSync("userInfo");
-    that.getLocation();
+    
+    if (userInfo.id == 0 || userInfo.id == 1 || userInfo.id == null || userInfo.id == undefined) {
+      wx.redirectTo({
+        url: '../pages/index/index'
+      })
+    }
     that.setData({
       userInfo: userInfo
-    });
+    });  
+    that.getLocation();
+    
     //获取所有分类
     wx.request({
       url: base_url + 'index.php/front/label/getAllLables',

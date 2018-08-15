@@ -37,7 +37,7 @@ var uploadImages = function (that, tempFilePaths) {
           imgList: imgList,
 
         });
-        // console.log( that.data.imgList.length );
+       
       }
     });
   }
@@ -61,7 +61,7 @@ Page({
     phoneinput:'',//联系电话
     wxnumberinput:'',//微信号码
     checkboxArray: [{value:'正常'}, {value:'异常'}],// 单选框数组
-    checkboxindex:0,// 单选按钮索引
+    checkboxindex:'',// 单选按钮索引
     petcontent:'',
     imgList:[],//临时存放图片数组
     userInfo:''
@@ -135,7 +135,7 @@ Page({
     that.setData({
       checkboxindex: index
     });
-    console.log(index);
+   
   },
 // 病情内容输入框失去焦点时间
   bindContentTextAreaBlur:function(e){
@@ -162,7 +162,7 @@ Page({
 
       },
       fail: function (err) {
-        console.error(err);
+       
       }
     })
 
@@ -174,7 +174,7 @@ Page({
     let index = e.currentTarget.dataset.index;
     let uploadImgs = that.data.imgList;
     let img_url = uploadImgs[index];
-    console.log(img_url);
+   
     wx.request({
       url: base_url + 'index.php/front/common/deleteUpLoadImage',
       data: img_url,
@@ -275,7 +275,8 @@ Page({
         return false;
       }
       var eat = that.data.checkboxindex;// 精神，食欲及吃喝拉撒的情况
-      if (eat == '' || eat == null || eat == undefined) {
+      console.log(eat);
+      if (eat === '' || eat === null || eat === undefined) {
         wx.showToast({
           title: '请选择宠物的异常情况！',
           icon: 'none',
@@ -332,10 +333,11 @@ Page({
   onLoad:function(){
     var that = this;
     var userInfo = wx.getStorageSync("userInfo");
-    console.log(userInfo);
+   
     that.setData({
       userInfo:userInfo
     });
+   
   },
 
 

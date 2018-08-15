@@ -150,11 +150,21 @@
       </view>
 
       <view class="comment-line" wx:else data-name="{{comment.nick_name}}" data-cid="{{comment.id}}"   catchtap="replay_user">
-        <view class="comment-name">
+       
+        <view class="comment-name" wx:if="{{comment.replay_user != null}}">
        {{comment.replay_user.nick_name}}
+
         <view class="replay_title">回复</view>
          {{comment.nick_name}}:
         </view>
+    <view class="comment-name" wx:else>
+      <block wx:if="{{comment.reply_account == 'admin'}}">
+        管理员
+      </block> 
+        <view class="replay_title">回复</view>
+         {{comment.nick_name}}:
+        </view>
+
         <view class="comment-detail">{{comment.reply_content}}</view>
       </view>
     </block>

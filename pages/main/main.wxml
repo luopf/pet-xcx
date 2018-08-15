@@ -1,10 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="onButtonTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
+<form bindsubmit="formSubmit" report-submit="true" >
   <view>
-    <text class="user-motto">{{motto}}</text>
+    <button formType="submit">发送模板消息</button>
+   
   </view>
+ </form>
 </view>

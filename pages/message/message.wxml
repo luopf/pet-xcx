@@ -17,6 +17,12 @@
     <view wx:else class='wrap-header-check wrap-view wrap-middle' data-index="2" catchtap='exchange_headerindex'>
       <text>审核通过</text>
     </view>
+    <view wx:if="{{hederindex == 4}}" class='wrap-header-check wrap-view  selected' data-index="4" catchtap='exchange_headerindex'>
+      <text>医生留言</text>
+    </view>
+    <view wx:else class='wrap-header-check wrap-view wrap-right' data-index="4" catchtap='exchange_headerindex'>
+      <text>医生留言</text>
+    </view>
     <view wx:if="{{hederindex == 3}}" class='wrap-header-check wrap-view wrap-right selected' data-index="3" catchtap='exchange_headerindex'>
       <text>留言互动</text>
     </view>
@@ -51,6 +57,9 @@
       </view>
        <view wx:if="{{hederindex == 3}}" class='content-bottom'>
         <text>尊敬的用户，您好！你在{{item.time_desc}}所发布的信息有新的留言，请及时查看,祝你生活愉快~</text>
+      </view>
+      <view wx:if="{{hederindex == 4}}" class='content-bottom'>
+        <text>您的宠物医生给你的回复：{{item.new_content}}</text>
       </view>
     </view>
   </block>

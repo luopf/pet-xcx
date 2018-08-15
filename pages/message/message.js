@@ -46,11 +46,13 @@ Page({
         for (var i = 0; i < dataList.length; i++) {
           messageList.push(dataList[i]);
         }
-        console.log(messageList,"===============");
+       
         that.setData({ messageList: messageList });
       }
     })
   },
+
+
   // 切换导航栏
   exchange_headerindex:function(e){
     let that = this;
@@ -78,7 +80,8 @@ Page({
     let nav_active = {
       message: 'active',
       circle: '',
-      center: ''
+      center: '',
+      newsCount:0
     };
     that.setData({ nav_active: nav_active });
     let user_id = that.data.userInfo.id;
@@ -90,9 +93,28 @@ Page({
   onLoad: function (options) {
     var that = this;
     let userInfo = wx.getStorageSync('userInfo');
+    if (userInfo.id == 0 || userInfo.id == 1 || userInfo.id == null || userInfo.id == undefined) {
+      wx.redirectTo({
+        url: '../pages/index/index'
+      })
+    }
     that.setData({
       userInfo: userInfo
     });  
+    // 将所有用户未读信息设置为已读
+    wx.request({
+      url: base_url +'index.php/front/News/userReadNews',
+      data: {
+        user_id:userInfo.id
+      },
+      method: 'POST',
+      success: function (res) {
+        
+
+      }
+      
+    })
+
 
 
     //获取页面公共数据
@@ -134,7 +156,7 @@ Page({
           success: function (res) {
 
             var data = res.data;
-            console.log(data);
+            
             wx.setStorageSync('thirdRD_session', data);
             wx.getUserInfo({
               success: function (res) {
@@ -214,7 +236,7 @@ Page({
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+     
     }
     return {
       title: elasticInfo.share.title,

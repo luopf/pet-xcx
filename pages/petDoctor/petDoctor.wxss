@@ -33,7 +33,7 @@ page{
 /* input 框 */
 .input{
   flex: 1;
-  
+  width: 520rpx;
 }
 /* 输入框的左面 */
 .title-left{
@@ -58,29 +58,50 @@ page{
   flex-direction: row;
   justify-content: space-between;
   align-items:center;
+  position: relative;
 }
 .picker{
   flex: 1;
   width:480rpx;
   color: #CCCCCC;
   height: 55rpx;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center; */
+}
+.picker .pick-view{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  flex:1;
+  height:55rpx;
 }
 .picker-small{
   flex: 1;
   width:420rpx;
   color: #CCCCCC;
   height: 55rpx;
-   display: flex;
+   /* display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center; */
+}
+.picker-small .pick-view{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  flex:1;
+  height:55rpx;
 }
 .iconfont{
   margin-right: 0rpx;
   width: 50rpx;
   color: #FF6565;
+  
+}
+.input-iconfont{
+  position:absolute;
+  right:-50rpx;
+  top:10rpx;
 }
 .radioarea{
 
